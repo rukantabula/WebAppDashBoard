@@ -3,16 +3,18 @@
 // ======================================
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-$font-stack-primary: "Roboto", sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Extra+Condensed');
+$font-stack-primary: 'Fira Sans', sans-serif;
+$font-stack-secondary: 'Fira Sans Extra Condensed', sans-serif;
 $txt-tr-upper: uppercase;
 $txt-tr-none: none;
 
 
 // Colors
 $white: #fff;
-$color-primary: #808080;
-$color-secondary: #58e1c1;
+$color-primary: #7477bf;
+$color-secondary: #4d4c72;
 
 // Layout
 $max-width: 1000px;
