@@ -1,0 +1,49 @@
+.main {
+    display: grid;
+    grid-template-columns: 75px auto;
+    grid-gap: 20px;
+    height: 100vh;
+}
+
+.menu {
+    background-color: $color-secondary;
+    
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 150px auto;
+   
+}
+
+.dashboard-section-title {
+    font-family: $font-stack-secondary;
+    font-size: 25px;
+}
+
+.search-div {
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    height: 70px;
+}
+
+.dashboard-searchInput {
+    font-family: $font-stack-secondary;
+    float: right;
+    margin-top:12px;
+    margin-right:30px;
+    padding: 0 10px 0 15px;
+    width:300px;
+    height: 40px;
+    border:1px solid rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    font-size:18px;
+    color:gray;
+    background-image:url('https://png.icons8.com/search');
+    background-repeat:no-repeat;
+    background-position:right center;
+    background-size: 23px 23px;
+    background-origin: content-box;
+    opacity: .6;
+    outline:0;
+}
