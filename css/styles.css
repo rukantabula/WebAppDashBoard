@@ -405,8 +405,23 @@ p {
   background-size: 23px 23px;
   background-origin: content-box;
   opacity: .6;
-  outline: 0; }
+  outline: 0;
+  transition: color 1s ease-in-out; }
 
+.dashboard-searchInput:focus {
+  opacity: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  animation: fade-input-border 2s;
+  border-bottom: 1px solid #7477bf; }
+
+@keyframes fade-input-border {
+  0% {
+    border-color: #fff; }
+  100% {
+    border-color: gray; } }
 .visits-icon,
 .members-icon,
 .dashboard-icon,
