@@ -1,5 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Extra+Condensed");
+@keyframes fade-input-border {
+  0% {
+    border-color: #fff;
+    background-color: #fff;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0); }
+  100% {
+    border-color: #7477bf;
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.5); } }
+@keyframes slide-down {
+  0% {
+    opacity: 0.2;
+    -webkit-transform: translateY(-100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0); } }
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0.2;
+    -webkit-transform: translateY(-100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes slide-down {
+  0% {
+    opacity: 0.2;
+    -moz-transform: translateY(-100%); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -308,6 +338,9 @@ template {
 * {
   box-sizing: border-box; }
 
+html, body {
+  overflow-x: hidden; }
+
 ul {
   list-style-type: none;
   padding-left: 0; }
@@ -340,8 +373,9 @@ p {
   height: 45px; }
 
 .user-name {
-  font-size: 20px;
-  color: #fff; }
+  font-size: 18px;
+  color: #fff;
+  margin: auto 5px; }
 
 .user {
   display: grid;
@@ -377,7 +411,7 @@ p {
 .content {
   display: grid;
   grid-template-columns: 150px auto;
-  grid-template-rows: 100px 200px; }
+  grid-template-rows: 100px 80px; }
 
 .dashboard-section-title {
   font-family: "Fira Sans Extra Condensed", sans-serif;
@@ -407,7 +441,7 @@ p {
   background-position: right center;
   background-size: 23px 23px;
   background-origin: content-box;
-  opacity: .6;
+  opacity: 0.6;
   outline: 0;
   transition: color 1s ease-in-out; }
 
@@ -416,19 +450,38 @@ p {
   border: none;
   background-image: none;
   animation: fade-input-border 1s;
-  border-bottom: .5px solid #676666;
+  border-bottom: 0.5px solid #676666;
   background-color: #f0f0f0;
   box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.5); }
 
-@keyframes fade-input-border {
-  0% {
-    border-color: #fff;
-    background-color: #fff;
-    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0); }
-  100% {
-    border-color: #7477bf;
-    background-color: #f0f0f0;
-    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.5); } }
+.alert {
+  padding: 20px;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-size: 16px;
+  background-color: #7477bf;
+  height: 60px;
+  border-radius: 5px;
+  color: white;
+  margin: 15px 20px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  box-shadow: 0 6px 6px -6px black;
+  animation: slide-down 2s ease-out;
+  -webkit-animation: slide-down 2s ease-out;
+  -moz-animation: slide-down 2s ease-out; }
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 28px;
+  line-height: 20px;
+  cursor: pointer; }
+
+.closebtn:hover {
+  color: black; }
+
 .visits-icon,
 .members-icon,
 .dashboard-icon,
@@ -461,22 +514,28 @@ p {
   float: right;
   margin-bottom: 20px; }
 
-.item {
+.traffic-chart-menu p {
   font-family: "Fira Sans", sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #676666;
   display: inline;
   padding: 10px 25px;
-  transition: font-size 1s ease-in-out; }
+  border-radius: 20px;
+  transition: background-color .3s ease-in-out; }
 
-.item:hover {
+.traffic-chart-menu p:hover {
   cursor: pointer; }
 
-.weekly {
+.traffic-chart-menu p:nth-child(3),
+#item-selected {
   color: #fff;
   background-color: #81c98f;
-  border-radius: 20px;
   box-shadow: 0 6px 6px -6px black; }
+
+#item-deselected {
+  color: #676666;
+  background-color: #fff;
+  box-shadow: none; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const chart = document.getElementById('chart').getContext('2d');
     const trafficChartMenu = document.querySelector('.traffic-chart-menu');
+    const selectItems = (parent, item) => parent.querySelectorAll(item);
 
     const hourlyLabels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'];
     const hourlyData =  [1500, 2550, 1750, 3500, 2000, 1500, 2500, 1250, 1800, 500, 1700, 2700, 1500];
@@ -12,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const weeklyData =  [500, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750];
     const monthlyLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const monthlyData =  [25000, 35000, 85000, 25000, 90000, 50500, 52000, 20550, 35000, 75000, 32500, 100000 ];
-
-    const createChart = (type, labels, data, stepSize, max) => {
+    
+    const createChart = (type = 'line', labels, data, stepSize, max) => {
         new Chart(chart, {
             type: type,
             data: {
@@ -41,56 +42,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const selectItems = (parent, item) => parent.querySelectorAll(item);
+    createChart("line", weeklyLabels, weeklyData, 500, 3000); 
     
-    createChart('line',  weeklyLabels, weeklyData, 500, 3000);
-
-
         trafficChartMenu.addEventListener('click', e => {
-            const resetMenuItems = item => {
-              const styleElement = (
-                element,
-                color,
-                backgroundColor,
-                borderRadius = 0,
-                boxShadow = "none",
-                transition = "none"
-              ) => {
-                element.style.color = color;
-                element.style.backgroundColor = backgroundColor;
-                element.style.borderRadius = borderRadius;
-                element.style.boxShadow = boxShadow;
-                element.style.transition = transition;
-              };
+            const selectedItem = e.target.className;
+            const items = selectItems(trafficChartMenu, 'p');
 
-
-              const items = selectItems(trafficChartMenu, "p");
-              items.forEach(element => {
-                item == element.className
-                  ? styleElement(element, '#fff', '#81c98f', '20px', '0 6px 6px -6px rgba(0, 0, 0, .8)', 'background-color .3s ease-in-out')
-                  : styleElement(element, "#676666", "#fff");
-              });
+            const menuAction = {
+                hourly: () => createChart('line', hourlyLabels, hourlyData, 500, 4000),
+                daily: () => createChart('line',dailyLabels, dailyData, 1000, 6000),
+                weekly: () => createChart('line',weeklyLabels, weeklyData, 500, 3000),
+                monthly: () => createChart('line',monthlyLabels, monthlyData, 20000, 100000)
             };
 
+            const resetMenuItems = () => {
+                items.forEach(element => {
+                    element.id =
+                      selectedItem == element.className
+                        ? 'item-selected'
+                        : 'item-deselected';
+                  });
+            };
 
-            const selectedItem = e.target.className;
-            switch(selectedItem) {
-                case "item hourly":
-                    createChart('line',  hourlyLabels, hourlyData, 500, 4000);
-                    resetMenuItems(selectedItem)
-                    break;
-                case "item daily":
-                    createChart('line',  dailyLabels, dailyData, 1000, 6000);
-                    resetMenuItems(selectedItem)
-                    break;
-                case "item weekly":
-                    createChart('line',  weeklyLabels, weeklyData, 500, 3000);
-                    resetMenuItems(selectedItem)
-                    break;
-                case "item monthly":
-                    createChart('line',  monthlyLabels, monthlyData, 20000, 100000);
-                    resetMenuItems(selectedItem)
-                    break;
-            }
+            menuAction[selectedItem]();
+            resetMenuItems();
     });
 });

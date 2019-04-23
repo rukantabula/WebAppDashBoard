@@ -17,23 +17,32 @@
     margin-bottom:  20px;
 }
 
-.item {
+
+
+.traffic-chart-menu  p {
     font-family: $font-stack-primary;
     font-size: 15px;
     font-weight: bold;
     color: #676666;
     display: inline;
     padding: 10px 25px;
-    transition: font-size 1s ease-in-out;
+    border-radius: 20px;
+    transition: background-color .3s ease-in-out;
 }
 
-.item:hover {
+.traffic-chart-menu p:hover {
     cursor: pointer;
 }
 
-.weekly {
+.traffic-chart-menu  p:nth-child(3),
+#item-selected {
     color: $white;
     background-color: $color-ternary;
-    border-radius: 20px;
     box-shadow: 0 6px 6px -6px black;
+}
+
+#item-deselected {
+    color: #676666;
+    background-color: $white;
+    box-shadow: none;
 }
