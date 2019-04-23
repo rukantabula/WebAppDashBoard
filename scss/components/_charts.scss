@@ -1,0 +1,39 @@
+.traffic-chart {
+    padding:10px 50px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: 300px;
+    
+}
+
+.traffic-chart-title {
+    font-family: $font-stack-secondary;
+    font-size: 18px;
+    color: #676666;
+}
+
+.traffic-chart-menu {
+    float: right;
+    margin-bottom:  20px;
+}
+
+.item {
+    font-family: $font-stack-primary;
+    font-size: 15px;
+    font-weight: bold;
+    color: #676666;
+    display: inline;
+    padding: 10px 25px;
+    transition: font-size 1s ease-in-out;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+.weekly {
+    color: $white;
+    background-color: $color-ternary;
+    border-radius: 20px;
+    box-shadow: 0 6px 6px -6px black;
+}

@@ -1,27 +1,29 @@
 .main {
     display: grid;
     grid-template-columns: 75px auto;
+
     grid-gap: 20px;
     height: 100vh;
 }
 
 .menu {
     background-color: $color-secondary;
-    
 }
 
 .content {
     display: grid;
     grid-template-columns: 150px auto;
-   
+    grid-template-rows: 100px 200px;
 }
 
 .dashboard-section-title {
     font-family: $font-stack-secondary;
     font-size: 25px;
+    color: #676666;
 }
 
 .search-div {
+    background-color: #fbfbfb;
     border-left: 1px solid rgba(0, 0, 0, .2);
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     height: 70px;
@@ -52,20 +54,24 @@
 
 .dashboard-searchInput:focus {
     opacity: 1;
-    padding: 5px;
     border: none;
-    border-radius: 0;
     background-image: none;
-    animation: fade-input-border 2s;
-    border-bottom: 1px solid $color-primary;
+    animation: fade-input-border 1s;
+    border-bottom: .5px solid #676666;
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .5);
 }
 
 @keyframes fade-input-border {
     0% {
       border-color: $white;
+      background-color: #fff;
+     box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .0);
     }
     100% {
-     border-color: gray;
+     border-color: $color-primary;
+     background-color: #f0f0f0;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .5);
     }
   }
   

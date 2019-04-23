@@ -376,13 +376,16 @@ p {
 
 .content {
   display: grid;
-  grid-template-columns: 150px auto; }
+  grid-template-columns: 150px auto;
+  grid-template-rows: 100px 200px; }
 
 .dashboard-section-title {
   font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-size: 25px; }
+  font-size: 25px;
+  color: #676666; }
 
 .search-div {
+  background-color: #fbfbfb;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   height: 70px; }
@@ -410,18 +413,22 @@ p {
 
 .dashboard-searchInput:focus {
   opacity: 1;
-  padding: 5px;
   border: none;
-  border-radius: 0;
   background-image: none;
-  animation: fade-input-border 2s;
-  border-bottom: 1px solid #7477bf; }
+  animation: fade-input-border 1s;
+  border-bottom: .5px solid #676666;
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.5); }
 
 @keyframes fade-input-border {
   0% {
-    border-color: #fff; }
+    border-color: #fff;
+    background-color: #fff;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0); }
   100% {
-    border-color: gray; } }
+    border-color: #7477bf;
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.5); } }
 .visits-icon,
 .members-icon,
 .dashboard-icon,
@@ -431,7 +438,45 @@ p {
   width: 63px;
   margin-left: 10px; }
 
+.members-icon,
+.dashboard-icon,
+.settings-icon {
+  opacity: .7; }
+
 .visits-icon {
   margin-top: 25px; }
+
+.traffic-chart {
+  padding: 10px 50px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  height: 300px; }
+
+.traffic-chart-title {
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-size: 18px;
+  color: #676666; }
+
+.traffic-chart-menu {
+  float: right;
+  margin-bottom: 20px; }
+
+.item {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #676666;
+  display: inline;
+  padding: 10px 25px;
+  transition: font-size 1s ease-in-out; }
+
+.item:hover {
+  cursor: pointer; }
+
+.weekly {
+  color: #fff;
+  background-color: #81c98f;
+  border-radius: 20px;
+  box-shadow: 0 6px 6px -6px black; }
 
 /*# sourceMappingURL=styles.css.map */
