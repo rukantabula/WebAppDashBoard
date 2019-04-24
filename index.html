@@ -19,7 +19,7 @@
            </div>
         </div>
       </header>
-      <div class="main">
+      <div class="wrapper">
           <div class="menu">
               <object class="visits-icon"  data="icons/sprite.svg#visits"  type="image/svg+xml" ></object>
               <object class="members-icon"  data="icons/sprite.svg#members"  type="image/svg+xml" ></object>
@@ -38,7 +38,8 @@
               Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.
             </div>
 
-          <div class="traffic-chart">
+          <div class="main">
+            <div class="traffic-chart">
               <p class="traffic-chart-title">TRAFFIC</p>
               <div class="traffic-chart-menu">
                   <p class="hourly">Hourly</p>
@@ -46,8 +47,20 @@
                   <p class="weekly">Weekly</p>
                   <p class="monthly">Monthly</p>
               </div>
-            <canvas id="chart" ></canvas>
-            
+            <canvas id="line-chart" ></canvas>
+          </div>
+
+          <div class="other-charts">
+            <div class="daily-traffic">
+                <p class="daily-chart-title"> DAILY TRAFFIC</p>
+                <canvas id="bar-chart" ></canvas>
+            </div>
+            <div class="mobile-user">
+                <p class="user-chart-title"> MOBILE USER</p>
+                <canvas id="doughnut-chart" ></canvas>
+            </div>
+
+          </div>
           </div>
           
         </div>

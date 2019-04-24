@@ -1,7 +1,9 @@
     
 'use strict';
 document.addEventListener("DOMContentLoaded", () => {
-    const chart = document.getElementById('chart').getContext('2d');
+    const trafficChart = document.getElementById('line-chart').getContext('2d');
+    const dailyTrafficChart = document.getElementById('bar-chart').getContext('2d');
+    const mobileUserChart = document.getElementById('doughnut-chart').getContext('2d');
     const trafficChartMenu = document.querySelector('.traffic-chart-menu');
     const selectItems = (parent, item) => parent.querySelectorAll(item);
 
@@ -13,46 +15,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const weeklyData =  [500, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750];
     const monthlyLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const monthlyData =  [25000, 35000, 85000, 25000, 90000, 50500, 52000, 20550, 35000, 75000, 32500, 100000 ];
+    const dailyTrafficLabels = ['S','M', 'T', 'W', 'T', 'F', 'S'];
+    const dailyTrafficData =  [75, 100, 175, 125, 225, 200, 100];
+    const mobileUserLabels = ['Tablet','Phone', 'Desktop'];
+    const mobileUserData =  [20, 25, 145];
+
     
-    const createChart = (type = 'line', labels, data, stepSize, max) => {
-        new Chart(chart, {
+    const createChart = ( labels, data, stepSize, max, bgColorOpacity = .3, brdrColorOpacity = .7, chartName = trafficChart, type = 'line', isDoughnut = false) => {
+        new Chart(chartName, {
             type: type,
             data: {
                 labels: labels,
                 datasets: [{
                     data: data,
-                    backgroundColor: 'rgba(226, 227, 246, 0.7)',
-                    borderColor: 'rgba(116, 119, 191, 1)',
+                    backgroundColor: isDoughnut ? [ '#81c98f', '#74b1bf','#7377bf'] : `rgba(115, 119, 191, ${bgColorOpacity})`,
+                    borderColor: `rgba(115, 119, 191, ${brdrColorOpacity})`,
                     borderWidth: .5
                 }]
             },
             options: {
                 scales: {
                     yAxes: [{ ticks: { beginAtZero: true, stepSize: stepSize,max: max}}],
-                    xAxes: [{ ticks: { maxTicksLimit: 115 } }]
+                    xAxes: [{ ticks: { maxTicksLimit: 15 } }]
                 },
                 maintainAspectRatio: false,
                 responsive: true,
-                legend: { display: false },
+                legend: { display: isDoughnut ? true : false , position: 'right',
+                labels: { boxWidth: 15, fontSize: 16}
+                },
                 elements: {
                 line: { tension: 0 },
-                point: {radius: 4 }
+                point: {radius: 5 }
             }
         }
         });
     };
 
-    createChart("line", weeklyLabels, weeklyData, 500, 3000); 
+    createChart(weeklyLabels, weeklyData, 500, 3000); 
+    createChart(dailyTrafficLabels, dailyTrafficData, 50, 300, 1, .8, dailyTrafficChart, 'bar'); 
+    createChart (mobileUserLabels, mobileUserData, 50, 300, .8, .7, mobileUserChart, 'doughnut', true); 
     
         trafficChartMenu.addEventListener('click', e => {
             const selectedItem = e.target.className;
             const items = selectItems(trafficChartMenu, 'p');
 
             const menuAction = {
-                hourly: () => createChart('line', hourlyLabels, hourlyData, 500, 4000),
-                daily: () => createChart('line',dailyLabels, dailyData, 1000, 6000),
-                weekly: () => createChart('line',weeklyLabels, weeklyData, 500, 3000),
-                monthly: () => createChart('line',monthlyLabels, monthlyData, 20000, 100000)
+                hourly: () => createChart(hourlyLabels, hourlyData, 500, 4000),
+                daily: () => createChart(dailyLabels, dailyData, 1000, 6000),
+                weekly: () => createChart(weeklyLabels, weeklyData, 500, 3000),
+                monthly: () => createChart(monthlyLabels, monthlyData,  20000, 100000)
             };
 
             const resetMenuItems = () => {
