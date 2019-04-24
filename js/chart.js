@@ -62,13 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
         defaultChartList.forEach(type => viewChart[type]());
     
         trafficChartMenu.addEventListener("click", e => {
-          const selectedItem = e.target.className;
+          const itemClass = e.target.className;
 
-          viewChart[selectedItem]();
+          viewChart[itemClass]();
 
           chartMenuItems.forEach(item => {
             item.id =
-              selectedItem == item.className
+            item.className == itemClass
                 ? "item-selected"
                 : "item-deselected";
           });
