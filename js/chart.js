@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dailyTrafficChart = document.getElementById('bar-chart').getContext('2d');
     const mobileUserChart = document.getElementById('doughnut-chart').getContext('2d');
     const trafficChartMenu = document.querySelector('.traffic-chart-menu');
-    const selectItems = (parent, item) => parent.querySelectorAll(item);
 
     const hourlyLabels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'];
     const hourlyData =  [1500, 2550, 1750, 3500, 2000, 1500, 2500, 1250, 1800, 500, 1700, 2700, 1500];
@@ -20,23 +19,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileUserLabels = ['Tablet','Phone', 'Desktop'];
     const mobileUserData =  [20, 25, 145];
 
+    const selectItems = (parent, item) => parent.querySelectorAll(item);
+
     
-    const createChart = ( labels, data, stepSize, max, bgColorOpacity = .3, brdrColorOpacity = .7, chartName = trafficChart, type = 'line', isDoughnut = false) => {
+    const createChart = (labels, data, bgOpacity = .3, brdrOpacity = .7, chartName = trafficChart, type = 'line', isDoughnut = false) => {
+        const max = Math.max.apply(null,  data);
+        const stepSize = Math.min.apply(null,  data);
+
         new Chart(chartName, {
             type: type,
             data: {
                 labels: labels,
                 datasets: [{
                     data: data,
-                    backgroundColor: isDoughnut ? [ '#81c98f', '#74b1bf','#7377bf'] : `rgba(115, 119, 191, ${bgColorOpacity})`,
-                    borderColor: `rgba(115, 119, 191, ${brdrColorOpacity})`,
+                    backgroundColor: isDoughnut ? [ '#81c98f', '#74b1bf','#7377bf'] : `rgba(115, 119, 191, ${bgOpacity})`,
+                    borderColor: `rgba(115, 119, 191, ${brdrOpacity})`,
                     borderWidth: .5
                 }]
             },
             options: {
                 scales: {
-                    yAxes: [{ ticks: { beginAtZero: true, stepSize: stepSize,max: max}}],
-                    xAxes: [{ ticks: { maxTicksLimit: 15 } }]
+                    yAxes: [{ ticks: { 
+                        beginAtZero: true,
+                         stepSize: isDoughnut ? 50 : stepSize, max: isDoughnut ? max + 300 : max
+                        }
+                    }],
+                    xAxes: [{ ticks: { maxTicksLimit: data.length } }]
                 },
                 maintainAspectRatio: false,
                 responsive: true,
@@ -45,37 +53,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 elements: {
                 line: { tension: 0 },
-                point: {radius: 5 }
+                point: { radius: 5 }
             }
         }
         });
     };
 
-    createChart(weeklyLabels, weeklyData, 500, 3000); 
-    createChart(dailyTrafficLabels, dailyTrafficData, 50, 300, 1, .8, dailyTrafficChart, 'bar'); 
-    createChart (mobileUserLabels, mobileUserData, 50, 300, .8, .7, mobileUserChart, 'doughnut', true); 
+        const viewChart = {
+            hourly: () => createChart(hourlyLabels, hourlyData),
+            daily: () => createChart(dailyLabels, dailyData),
+            weekly: () => createChart(weeklyLabels, weeklyData),
+            monthly: () => createChart(monthlyLabels, monthlyData),
+            dailyTraffic: () => createChart(dailyTrafficLabels, dailyTrafficData, 1, .8, dailyTrafficChart, 'bar'),
+            mobileUser: () => createChart (mobileUserLabels, mobileUserData, .8, .7, mobileUserChart, 'doughnut', true)
+        };
+
+        viewChart['weekly']();
+        viewChart['dailyTraffic']();
+        viewChart['mobileUser']();
     
-        trafficChartMenu.addEventListener('click', e => {
-            const selectedItem = e.target.className;
-            const items = selectItems(trafficChartMenu, 'p');
+        trafficChartMenu.addEventListener("click", e => {
+          const selectedItem = e.target.className;
 
-            const menuAction = {
-                hourly: () => createChart(hourlyLabels, hourlyData, 500, 4000),
-                daily: () => createChart(dailyLabels, dailyData, 1000, 6000),
-                weekly: () => createChart(weeklyLabels, weeklyData, 500, 3000),
-                monthly: () => createChart(monthlyLabels, monthlyData,  20000, 100000)
-            };
+          viewChart[selectedItem]();
 
-            const resetMenuItems = () => {
-                items.forEach(element => {
-                    element.id =
-                      selectedItem == element.className
-                        ? 'item-selected'
-                        : 'item-deselected';
-                  });
-            };
-
-            menuAction[selectedItem]();
-            resetMenuItems();
-    });
-});
+          selectItems(trafficChartMenu, "p").forEach(element => {
+            element.id =
+              selectedItem == element.className
+                ? "item-selected"
+                : "item-deselected";
+          });
+        });
+     });
