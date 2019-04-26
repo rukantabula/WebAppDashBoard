@@ -2,18 +2,19 @@
   display: grid;
   grid-template-columns: 75px auto;
   grid-gap: 20px;
-  height: 100vh;
 }
 
 .menu {
   background-color: $color-secondary;
-  margin-bottom: -100px;
+  //margin-bottom: -100px;
 }
 
 .content {
   display: grid;
   grid-template-columns: 150px auto;
   grid-template-rows: 100px 80px;
+  
+  height: 460vh;
 }
 
 .dashboard-section-title {
