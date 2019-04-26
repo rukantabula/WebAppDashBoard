@@ -1,0 +1,20 @@
+.visits-icon,
+.members-icon,
+.dashboard-icon,
+.settings-icon {
+    padding: 15px;
+    height: 63px;
+    width: 63px;
+    margin-left: 10px;
+}
+
+
+.members-icon,
+.dashboard-icon,
+.settings-icon {
+    opacity: .7;
+}
+
+.visits-icon {
+margin-top: 25px;
+}

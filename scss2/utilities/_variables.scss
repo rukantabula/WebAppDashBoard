@@ -1,0 +1,51 @@
+// ======================================
+//  Variables
+// ======================================
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Extra+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+$font-stack-primary: 'Fira Sans', sans-serif;
+$font-stack-secondary: 'Fira Sans Extra Condensed', sans-serif;
+$font-stack-ternary: 'Open Sans Condensed', sans-serif;
+$txt-tr-upper: uppercase;
+$txt-tr-none: none;
+
+
+// Colors
+$white: #fff;
+$color-primary: #7477bf;
+$color-secondary: #4d4c72;
+$color-ternary: #81c98f;
+
+// Layout
+$max-width: 1000px;
+$gutter: 10px;
+$btn-brdr-radius: 5px;
+
+// Breakpoints
+$breakpoints: (
+  "xs": 768px,
+  "sm": 769px
+);
+
+// Button Theme color
+$button-themes: (
+  "default": #51ddfc,
+  "success": #63cc82,
+  "error": #e4757a,
+  "warning": #fd7856,
+  "info": #927bc1
+);
+
+// Button Theme color
+$grid-themes: (
+  3: #deb2ee,
+  4: #7ee6fd,
+  5: #88d9a0,
+  6: #3fabca,
+  7: #ec9fa3,
+  8: #fd9f85,
+  12: #80e8d1
+);
