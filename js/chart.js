@@ -1,4 +1,5 @@
-    'use strict'
+  
+  
     const trafficChart = document.getElementById('line-chart').getContext('2d');
     const dailyTrafficChart = document.getElementById('bar-chart').getContext('2d');
     const mobileUserChart = document.getElementById('doughnut-chart').getContext('2d');

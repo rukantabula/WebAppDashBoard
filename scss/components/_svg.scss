@@ -30,17 +30,62 @@
   background-color: #81c98f; 
 }
 
-.notify {
-  border: 3px solid #73AD21;
+
+.close-notif-section p {
+  font-size: 20px;
+  font-family: $font-stack-primary;
+  font-size: 11px;
+  color: #fff;
+  margin: auto;
+  padding: 7px 0;
+  text-align: center;
+  height: 30px;
+  background-color: rgba(115, 119, 191, 1);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+.close-notif-section p:hover{
+  cursor: pointer;
+  background-color: rgba(115, 119, 191, .9);
+}
+
+
+.notif-alert-symbol {
+  @include roundy(8%);
+  height: 8px;
+  width: 8px;
+  background-color: #81c98f; 
+} 
+
+.notif-alert-symbol,
+.notif-close {
+  margin: auto;
+}
+
+.notif-close:hover {
+  cursor: pointer;
+}
+
+
+
+.notifications {
   position: absolute;
-  top: 70px;
-  right: 250px;
+  top: 75px;
+  right: 260px;
   height: auto;
-  width: 300px;
+  width: 230px;
   background-color: #FFF;
-  opacity: .8;
+  opacity: 1;
   display: none;
   z-index: 999;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 8px;
+  animation: slide-down .5s ease-out;
+  -webkit-animation: notifications-slide-down .5s ease-out;
+  -moz-animation: notfications-slide-down .5s ease-out;
+  box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 1);
 }
 
 .twitter-svg,
@@ -64,3 +109,15 @@
   padding: 10px;
 }
 
+.notif-section {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.notif-section p {
+  font-family: $font-stack-primary;
+  font-size: 11px;
+  color: #676666;
+}
