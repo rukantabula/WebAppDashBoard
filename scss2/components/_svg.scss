@@ -1,7 +1,47 @@
 .bell-icon {
   width: 27px;
   height: 27px;
-  margin:auto;
+  margin: auto;
+  position: relative;
+  -webkit-animation-name: hvr-buzz-out;
+  animation-name: hvr-buzz-out;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+}
+
+
+
+.bell-icon:hover {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.notif-alert {
+  @include roundy(10%);
+  position: absolute;
+  top: 17px;
+  right: 285px;
+  height: 12px;
+  width: 12px;
+  background-color: #81c98f; 
+}
+
+.notify {
+  border: 3px solid #73AD21;
+  position: absolute;
+  top: 70px;
+  right: 250px;
+  height: auto;
+  width: 300px;
+  display: none;
+  background-color: #FFF;
+  opacity: .8;
+  z-index: 999;
 }
 
 .twitter-svg,

@@ -1,5 +1,4 @@
-    
-'use strict'
+    'use strict'
     const trafficChart = document.getElementById('line-chart').getContext('2d');
     const dailyTrafficChart = document.getElementById('bar-chart').getContext('2d');
     const mobileUserChart = document.getElementById('doughnut-chart').getContext('2d');
@@ -46,7 +45,7 @@
         };
 
         chart.defaultChartList.forEach(type => viewChart[type]());
-    
+
         trafficChartMenu.addEventListener("click", e => {
           const itemClass = e.target.className;
 
@@ -54,7 +53,7 @@
 
           chartMenuItems.forEach(item => {
             item.id =
-            item.className == itemClass
+              item.className == itemClass
                 ? "item-selected"
                 : "item-deselected";
           });
