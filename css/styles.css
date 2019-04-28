@@ -519,19 +519,30 @@ p {
 .closebtn:hover {
   color: black; }
 
-.visits-icon,
-.members-icon,
-.dashboard-icon,
-.settings-icon {
-  padding: 15px;
-  height: 63px;
-  width: 63px;
-  margin-left: 10px; }
+.menu-item {
+  padding: 20px;
+  border-left: 3px solid #4d4c72;
+  transition: padding .5s ease-in-out; }
+
+.menu-item:hover {
+  padding: 17px;
+  cursor: pointer; }
+
+#menu-item-selected {
+  border-left: 3px solid #81c98f; }
+
+#menu-item-deselected {
+  border-left: 3px solid #4d4c72;
+  opacity: .6; }
+
+.right-border {
+  background-color: #81c98f;
+  width: 5px; }
 
 .members-icon,
-.dashboard-icon,
+.visits-icon,
 .settings-icon {
-  opacity: .7; }
+  opacity: .6; }
 
 .visits-icon {
   margin-top: 25px; }
@@ -548,7 +559,8 @@ p {
 .bell-icon {
   width: 27px;
   height: 27px;
-  margin: auto;
+  margin-top: 20px;
+  margin-left: 15px;
   position: relative;
   -webkit-animation-name: hvr-buzz-out;
   animation-name: hvr-buzz-out;

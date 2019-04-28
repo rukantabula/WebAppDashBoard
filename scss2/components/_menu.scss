@@ -1,11 +1,27 @@
-.visits-icon,
-.members-icon,
-.dashboard-icon,
-.settings-icon {
+
+.menu-item {
+    padding: 20px;
+    border-left: 3px solid $color-secondary;
+    transition: padding .5s ease-in-out;
+}
+
+.menu-item:hover {
     padding: 15px;
-    height: 63px;
-    width: 63px;
-    margin-left: 10px;
+    cursor: pointer;
+}
+
+#menu-item-selected {
+    border-left: 3px solid $color-ternary;
+}
+
+#menu-item-deselected {
+    border-left: 3px solid $color-secondary;
+    opacity: .6;
+}
+
+.right-border {
+    background-color: $color-ternary;
+    width: 5px;
 }
 
 
