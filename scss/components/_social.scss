@@ -1,0 +1,22 @@
+
+.twitter-svg,
+.facebook-svg,
+.google-svg {
+  fill: $white;
+}
+
+.twitter-bg,
+.facebook-bg,
+.google-bg {
+  @include roundy(70%);
+  background-Color: $color-primary;
+  margin: 20px 20px 20px 30px;
+  height: 80px;
+  width: 80px;
+  padding: 20px;
+}
+
+.facebook-bg {
+  padding: 10px;
+}
+

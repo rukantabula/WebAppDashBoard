@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const notifCloseSectionText = document.createElement("p");
   const menu = document.querySelector('.menu');
   const data = userData();
+  let notifMessages = data.notifications;
 
 const eventActions = {
   showNotificationWindow: () => {
@@ -15,8 +16,15 @@ const eventActions = {
   },
   closeNotificationWindow: () =>  notifWindow.style.display = "none",
   closeNotificationMessage: e => {
-    const notifSectionToRemove = document.getElementById(e.target.id);
-    notifSectionToRemove.parentNode.removeChild(notifSectionToRemove);
+    notifMessages.splice(e.target.id, 1);
+    notifMessages.length == 0 ? notifMessages.push('You have 0 unread messages') : null;
+
+    notifWindow
+      .querySelectorAll(".notif-section")
+      .forEach(item => item.parentNode.removeChild(item));
+
+    notifCloseSectionText.innerHTML = "";
+    renderNotifWindow(notifMessages);
   },
   navigateToSection: e => {
     const node = e.target.parentNode;
@@ -60,8 +68,8 @@ const eventActions = {
     });
   };
 
-  const renderNotifWindow = () => {
-    data.notifications.forEach((message, index) => {
+  const renderNotifWindow = messages => {
+    messages.forEach((message, index) => {
       const notifSection = document.createElement("div");
       const notifAlertSymbol = document.createElement("span");
       const notifMsg = document.createElement("p");
@@ -81,7 +89,7 @@ const eventActions = {
       notifWindow.appendChild(notifSection);
       eventListener(notifMessageCloseButton, 'closeNotificationMessage');
     });
-    
+
     notifWindowCloseButton.appendChild(notifCloseSectionText);
     notifWindowCloseButton.className = "close-notif-section";
     notifCloseSectionText.appendChild(document.createTextNode("Close Notifications"));
@@ -90,7 +98,7 @@ const eventActions = {
 
   renderUserDetails();
   renderMenuItems();
-  renderNotifWindow();
+  renderNotifWindow(notifMessages);
 
   eventListener(notifButton, 'showNotificationWindow');
   eventListener(notifWindowCloseButton, 'closeNotificationWindow');

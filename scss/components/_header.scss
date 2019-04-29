@@ -1,42 +1,152 @@
 .header {
-    display: grid;
-    height: 70px;
-    grid-template-columns: auto 310px;
-    background-color: $color-primary;
+  display: grid;
+  grid-template-columns: auto 310px;
+  height: 70px;
+  background-color: $color-primary;
 }
 
 .header-title {
-    font-family: $font-stack-secondary;
-    color: $white;
-    font-size: 25px;
-   margin-left: 20px;
-   
+  @include txt-style(
+    $size: 25px,
+    $color: $white,
+    $font: $font-stack-secondary
+  ) {
+    margin-left: 20px;
+  }
 }
 
+.app-name,
+.user-name,
+.td {
+  @include txt-style($weight: 100);
+}
 
 .app-name,
-.td,
 .user-name {
-font-family:  $font-stack-secondary;
-font-weight: 100;
+  @include txt-style($font: $font-stack-secondary);
+}
+
+.td {
+  @include txt-style($font: $font-stack-ternary);
 }
 
 .vertical-line {
-    margin: auto;
-    background-color:rgba($color: $color-secondary, $alpha: .4);
-    width: 1px;
-    height: 45px;
+  margin: auto;
+  width: 1px;
+  height: 45px;
+  background-color: rgba($color: $color-secondary, $alpha: 0.4);
 }
 
 .user-name {
-    font-size: 18px;
-    color: $white;
+  font-size: 18px;
+  color: $white;
+  @include txt-style($size: 18px, $color: $white) {
     margin: auto 5px;
+  }
 }
 
 .user-detail {
-    display: grid;
-    grid-template-columns: 1fr 15px 1fr 3fr;
-    margin: auto 0;
+  display: grid;
+  grid-template-columns: 1fr 15px 1fr 3fr;
+  margin: auto 0;
 }
 
+.bell-icon {
+  width: 27px;
+  height: 27px;
+  margin-top: 20px;
+  margin-left: 15px;
+  position: relative;
+  -webkit-animation-name: hvr-buzz-out;
+  animation-name: hvr-buzz-out;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+}
+
+.bell-icon:hover {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.notif-alert {
+  @include roundy(10%) {
+    position: absolute;
+    top: 17px;
+    right: 285px;
+    height: 12px;
+    width: 12px;
+    background-color: #81c98f;
+  }
+}
+
+.close-notif-section p {
+  @include txt-style(
+    $size: 11px,
+    $color: $white,
+    $font: $font-stack-primary,
+    $txt-align: center
+  ) {
+    margin: auto;
+    padding: 7px 0;
+    height: 30px;
+    background-color: rgba(115, 119, 191, 1);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
+
+.close-notif-section p:hover {
+  cursor: pointer;
+  background-color: rgba(115, 119, 191, 0.9);
+}
+
+.notif-alert-symbol {
+  @include roundy(8%) {
+    height: 8px;
+    width: 8px;
+    background-color: #81c98f;
+  }
+}
+
+.notif-alert-symbol,
+.notif-close {
+  margin: auto;
+}
+
+.notif-close:hover {
+  cursor: pointer;
+}
+
+.notifications {
+  position: absolute;
+  top: 75px;
+  right: 260px;
+  height: auto;
+  width: 230px;
+  background-color: #fff;
+  opacity: 1;
+  display: none;
+  z-index: 999;
+  border-radius: 8px;
+  animation: slide-down 0.5s ease-out;
+  -webkit-animation: notifications-slide-down 0.5s ease-out;
+  -moz-animation: notfications-slide-down 0.5s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 1);
+}
+
+.notif-section {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.notif-section p {
+  @include txt-style($font: $font-stack-primary, $size: 11px, $color: #676666);
+}
