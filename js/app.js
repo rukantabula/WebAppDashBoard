@@ -1,103 +1,98 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const userDetailDiv = document.querySelector('.user-detail');
-  const notificationBtn = document.querySelector(".bell-icon");
-  const notifications = document.querySelector(".notifications");
+  const userDetailSection = document.querySelector('.user-detail');
+  const notifButton = document.querySelector(".bell-icon");
+  const notifWindow = document.querySelector(".notifications");
   const notifAlert = document.querySelector(".notif-alert");
-  const menuSection = document.querySelector('.menu');
-  const wrapper = document.querySelector('.wrapper');
+  const notifWindowCloseButton = document.createElement("div");
+  const notifCloseSectionText = document.createElement("p");
+  const menu = document.querySelector('.menu');
   const data = userData();
-  let notMessgaes = data.notifications;
-  const menu  = menuIcons();
 
-  const userDetailSection = () => {
-    const profileImage = document.createElement('img');
-    const userName = document.createElement('p');
-    const name = document.createTextNode(`${data.details.firstName}  ${data.details.lastName}`);
-    profileImage.classList.add(data.details.img);
-    profileImage.src = `images/${data.details.img}.jpg`;
-    profileImage.alt = data.details.img;
-    userName.classList.add('user-name');
-    userName.appendChild(name);
-    userDetailDiv.appendChild(profileImage);
-    userDetailDiv.appendChild(userName);
-  }
-
-  const menuItems = () => {
-    menu.forEach((item, i) => {
-      const menuDiv = document.createElement('div');
-      const svg = document.createElement('svg');
-      svg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">${item['path']}</svg>`;
-      svg.querySelector('path').classList.add(`${item['menuItem']}-Icon`);
-      menuDiv.appendChild(svg);
-      menuDiv.classList.add('menu-item');
-      menuDiv.id = i == 0 ? 'menu-item-selected' : 'menu-item-deselected';
-      menuSection.appendChild(menuDiv);     
-    });
-  };
-
-  const notificationWindow = messages => {
-    if (messages.length == 0) {
-      messages.push('You have 0 unread notifications');
-    }
-    const notifCloseSection = document.createElement("div");
-    messages.forEach((message, i) => {
-      const notifSection = document.createElement("div");
-      const notificationSymbol = document.createElement("span");
-      const notificationMsg = document.createElement("p");
-      const notificationClose = document.createElement("span");
-
-      notificationSymbol.classList.add("notif-alert-symbol");
-      notificationMsg.appendChild(document.createTextNode(message));
-      notificationClose.classList.add("notif-close");
-      notificationClose.id = i;
-      notificationClose.innerHTML = "&times;";
-
-      notifSection.classList.add("notif-section");
-      notifSection.id = i;
-      notifSection.appendChild(notificationSymbol);
-      notifSection.appendChild(notificationMsg);
-      notifSection.appendChild(notificationClose);
-      notifications.appendChild(notifSection);
-
-      notificationClose.addEventListener('click', e => {
-        const notifSectionToRemove = document.getElementById(e.target.id);
-        notifSectionToRemove.parentNode.removeChild(notifSectionToRemove);
-        notifSection.removeChild(e.target);
-      });
-    });
-    
-
-    const notifCloseSectionText = document.createElement("p");
-    const closeText = document.createTextNode("Close Notifications");
-
-    notifCloseSection.className = "close-notif-section";
-    notifCloseSectionText.appendChild(closeText);
-    notifCloseSection.appendChild(notifCloseSectionText);
-
-    notifications.appendChild(notifCloseSection);
-
-    notifCloseSection.addEventListener("click", e => {
-      notifications.style.display = "none";
-    });
-  };
-
-  userDetailSection();
-  menuItems();
-  notificationWindow(notMessgaes);
-
-  notificationBtn.addEventListener("click", e => {
-    notifications.style.display = "block";
+const eventActions = {
+  showNotificationWindow: () => {
+    notifWindow.style.display = "block";
     notifAlert.style.display = "none";
-  });
-
-
-  menuSection.addEventListener("click", e => {
+  },
+  closeNotificationWindow: () =>  notifWindow.style.display = "none",
+  closeNotificationMessage: e => {
+    const notifSectionToRemove = document.getElementById(e.target.id);
+    notifSectionToRemove.parentNode.removeChild(notifSectionToRemove);
+  },
+  navigateToSection: e => {
     const node = e.target.parentNode;
     if (node.nodeName == "SVG") {
-      const menuItems = menuSection.querySelectorAll(".menu-item");
-      menuItems.forEach(
+      menu.querySelectorAll(".menu-item").forEach(
         item => (item.id = item == node.parentNode ? "menu-item-selected" : "menu-item-deselected")
       );
     }
-  });
+  }
+}
+
+  const eventListener = (element, action) =>
+    element.addEventListener("click", event => eventActions[action](event));
+
+  const renderUserDetails = () => {
+    const profileImage = document.createElement("img");
+    const userName = document.createElement("p");
+    profileImage.classList.add(data.details.img);
+    profileImage.src = `images/${data.details.img}.jpg`;
+    profileImage.alt = data.details.img;
+    userName.classList.add("user-name");
+    userName.appendChild(
+      document.createTextNode(
+        `${data.details.firstName}  ${data.details.lastName}`
+      )
+    );
+    userDetailSection.appendChild(profileImage);
+    userDetailSection.appendChild(userName);
+  };
+
+  const renderMenuItems = () => {
+    menuItems().forEach((item, index) => {
+      const menuSection = document.createElement('div');
+      const svg = document.createElement('svg');
+      svg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">${item.path}</svg>`;
+      svg.querySelector('path').classList.add(`${item.name}-Icon`);
+      menuSection.appendChild(svg);
+      menuSection.classList.add('menu-item');
+      menuSection.id = index == 0 ? 'menu-item-selected' : 'menu-item-deselected';
+      menu.appendChild(menuSection);     
+    });
+  };
+
+  const renderNotifWindow = () => {
+    data.notifications.forEach((message, index) => {
+      const notifSection = document.createElement("div");
+      const notifAlertSymbol = document.createElement("span");
+      const notifMsg = document.createElement("p");
+      const notifMessageCloseButton = document.createElement("span");
+
+      notifAlertSymbol.classList.add("notif-alert-symbol");
+      notifMsg.appendChild(document.createTextNode(message));
+      notifMessageCloseButton.classList.add("notif-close");
+      notifMessageCloseButton.id = index;
+      notifMessageCloseButton.innerHTML = "&times;";
+
+      notifSection.classList.add("notif-section");
+      notifSection.id = index;
+      notifSection.appendChild(notifAlertSymbol);
+      notifSection.appendChild(notifMsg);
+      notifSection.appendChild(notifMessageCloseButton);
+      notifWindow.appendChild(notifSection);
+      eventListener(notifMessageCloseButton, 'closeNotificationMessage');
+    });
+    
+    notifWindowCloseButton.appendChild(notifCloseSectionText);
+    notifWindowCloseButton.className = "close-notif-section";
+    notifCloseSectionText.appendChild(document.createTextNode("Close Notifications"));
+    notifWindow.appendChild(notifWindowCloseButton);
+  };
+
+  renderUserDetails();
+  renderMenuItems();
+  renderNotifWindow();
+
+  eventListener(notifButton, 'showNotificationWindow');
+  eventListener(notifWindowCloseButton, 'closeNotificationWindow');
+  eventListener(menu, 'navigateToSection');
 });
