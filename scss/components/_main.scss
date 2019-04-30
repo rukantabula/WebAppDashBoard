@@ -1,8 +1,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 65px auto;
-  grid-gap: 20px;
- 
+  grid-gap: 10px;
   @include mq("med") {
     grid-template-columns: 75px auto;
   }
@@ -13,7 +12,7 @@
 }
 
  .content {
-  height: 100vh;
+  height: 100%;
 }
 
 
@@ -55,9 +54,9 @@
   ) {
     float: right;
     margin-top: -50px;
-    margin-right: 30px;
+    margin-right: 5px;
     padding: 0 10px 0 15px;
-    width: 100px;
+    width: 150px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -67,6 +66,7 @@
   }
 
   @include mq("sm") {
+    margin-right: 30px;
    width: 200px;
    margin-top: 30px;
   }
@@ -97,13 +97,13 @@
 
 .alert {
   @include txt-style(
-    $size: 16px,
+    $size: 15px,
     $color: $white,
     $font: $font-stack-secondary
   ) {
     padding: 15px;
     background-color: $color-primary;
-    height: 130px;
+    height: 100px;
     border-radius: 5px;
     margin: 50px 20px auto 10px;
     grid-column-start: 1;

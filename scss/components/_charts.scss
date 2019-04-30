@@ -1,7 +1,7 @@
 .main {
     grid-column-start: 1;
     grid-column-end: 3;
-    max-width: 1200px;
+    max-width: 1100px;
     width: 80%;
     margin: 20px auto;
     @include mq("sm") {
@@ -15,10 +15,30 @@
 }
 
 .traffic-chart {
-    width: 100%;
-    height: 300px;
+    height: 250px;
+    margin-bottom: 150px;
     @include mq("med") {
-        height: 400px;
+        height: 300px;
+      }
+}
+
+.daily-traffic-chart,
+.mobile-user-chart {
+    height: 250px;
+    margin-bottom: 150px;
+    @include mq("sm") {
+        height: 200px;
+        width: 40%;
+        display: inline-block;
+      }
+      @include mq("med") {
+        height: 250px;
+      }
+}
+
+.mobile-user-chart {
+    @include mq("sm") {
+        margin-left: 15%;
       }
 }
 
@@ -33,19 +53,18 @@
     color: #676666;
 }
 
-.daily-chart-title {
-    margin-left: 10px;
+.daily-chart-title,
+.user-chart-title  {
+    margin-left: 0px;
 }
 
-.user-chart-title {
-    margin-left: 40px;
-}
+
 
 .traffic-chart-menu {
-   
-    margin-bottom:  30px;
+    margin-left: 50px;
     @include mq("sm") {
         float: right;
+        margin-left: 0;
       }
 }
 
@@ -54,13 +73,12 @@
     font-family: $font-stack-primary;
     font-size: 13px;
     color: #676666;
-    display: inline;
-    margin: 0 auto;
+    display: inline-block;
     padding: 5px 2px;
     border-radius: 20px;
     transition: background-color .3s ease-in-out;
     @include mq("sm") {
-        padding: 10px 25px;
+        padding: 10px 20x;
         font-size: 15px;
       font-weight: bold;
       }
@@ -90,35 +108,3 @@
 }
 
 
-.section {
-    margin: 120px auto;
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
-.sub-section1,
-.sub-section2 {
-    height: 500px;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 50px 30px;
-}
-
-.sub-section3,
-.sub-section4 {
-    height: 500px;
-    margin-bottom: -100px;
-}
-
-.sub-section2,
-.sub-section4 {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#bar-chart {
-}
-
-#doughnut-chart {
-    height: 250px;
-    width: 90%;
-}

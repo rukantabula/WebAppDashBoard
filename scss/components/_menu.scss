@@ -1,3 +1,8 @@
+.menu {
+  @include mq("med") {
+    height: 200%;
+  }
+}
 .menu-item {
   padding: 15px;
   border-left: 3px solid $color-secondary;

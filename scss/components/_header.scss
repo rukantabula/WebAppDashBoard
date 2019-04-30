@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 100px 310px;
+  grid-template-columns: auto 280px;
   height: 50px;
   background-color: $color-primary;
   @include mq('sm') {
@@ -151,17 +151,20 @@
 .notif-alert {
   @include roundy(10%) {
     position: absolute;
-    top: 17px;
+    top: 12px;
     right: 287px;
     height: 10px;
     width:10px;
     display: none;
     background-color: #81c98f;
+    
     @include mq("sm") {
       display: block;
     }
     @include mq('med') {
+      
       right: 285px;
+      top: 17px;
       height: 12px;
       width: 12px;
     }

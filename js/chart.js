@@ -29,7 +29,7 @@
             legend: {
               display: isDoughnut ? true : false,
               position: "right",
-              labels: { boxWidth: 15, fontSize: 16 }
+              labels: { boxWidth: 8, fontSize: 12 }
             },
             elements: { line: { tension: 0 }, point: { radius: 5 } }
           }
