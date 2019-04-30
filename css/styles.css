@@ -797,7 +797,7 @@ p {
     .daily-traffic-chart,
     .mobile-user-chart {
       width: 40%;
-      height: 300px; } }
+      height: 350px; } }
 
 @media (min-width: 545px) {
   .mobile-user-chart {
@@ -871,25 +871,41 @@ p {
   background-color: #fff;
   box-shadow: none; }
 
-.twitter-svg,
-.facebook-svg,
-.google-svg {
-  fill: #fff; }
+.social-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-gap: 40px; }
 
-.twitter-bg,
-.facebook-bg,
-.google-bg {
-  width: 70%;
-  height: 70%;
-  border-radius: 50%;
-  display: block;
-  background-Color: #7477bf;
-  margin: 20px 20px 20px 30px;
-  height: 80px;
-  width: 80px;
-  padding: 20px; }
+.twitter,
+.facebook,
+.google {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 140px;
+  width: auto;
+  border-radius: 5px;
+  background-color: #fbfbfb; }
 
-.facebook-bg {
-  padding: 10px; }
+.twitter-title,
+.facebook-title,
+.google-title {
+  font-family: "Fira Sans", sans-serif;
+  color: #7477bf;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 30px 0 5px 10px; }
+
+.twitter-stat,
+.facebook-stat,
+.google-stat {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #676666;
+  font-size: 40px;
+  font-weight: 100;
+  margin: 0 0 0 10px; }
 
 /*# sourceMappingURL=styles.css.map */
