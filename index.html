@@ -24,18 +24,45 @@
       <div class="wrapper">
         <div class="menu"></div>
         <div class="content"> 
+          <div class="search-container">
             <p class="dashboard-section-title">Dashboard</p>
+        
          <div class="search-div">
            <input class="dashboard-searchInput" type="search" placeholder="Search"/>
+         </div>
          </div>
          <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
             <strong>Alert  </strong>
             Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.
           </div>
+          <div class="main">
+            <div class="traffic-chart">
+              <p class="traffic-chart-title">TRAFFIC</p>
+              <div class="traffic-chart-menu">
+                  <p class="hourly">Hourly</p>
+                  <p class="daily">Daily</p>
+                  <p class="weekly">Weekly</p>
+                  <p class="monthly">Monthly</p>
+              </div>
+            <canvas id="line-chart"></canvas>
+          </div>
+
+          <div class="section">
+              <div class="daily-traffic">
+                  <p class="daily-chart-title"> DAILY TRAFFIC</p>
+                  <canvas id="bar-chart" ></canvas>
+              </div>
+              <div class="mobile-user">
+                  <p class="user-chart-title"> MOBILE USER</p>
+                  <canvas id="doughnut-chart" ></canvas>
+              </div>
+              
+  
+            </div>
       </div> 
       <script src="js/data.js"></script>
-      <!-- <script src="js/chart.js"></script> -->
+      <script src="js/chart.js"></script>
       <script src="js/app.js"></script>
   </body>
 </html>

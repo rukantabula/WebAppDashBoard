@@ -1,0 +1,124 @@
+.main {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-width: 1200px;
+    width: 80%;
+    margin: 20px auto;
+    @include mq("sm") {
+        width: 90%;
+      }
+    @include mq("med") {   
+    padding:10px 50px;
+        height: 400px;
+        width: 90%;
+      }
+}
+
+.traffic-chart {
+    width: 100%;
+    height: 300px;
+    @include mq("med") {
+        height: 400px;
+      }
+}
+
+.traffic-chart-title,
+.daily-chart-title ,
+.user-chart-title,
+.social-stats-title,
+.activity-title,
+.members-title {
+    font-family: $font-stack-secondary;
+    font-size: 18px;
+    color: #676666;
+}
+
+.daily-chart-title {
+    margin-left: 10px;
+}
+
+.user-chart-title {
+    margin-left: 40px;
+}
+
+.traffic-chart-menu {
+   
+    margin-bottom:  30px;
+    @include mq("sm") {
+        float: right;
+      }
+}
+
+
+.traffic-chart-menu  p {
+    font-family: $font-stack-primary;
+    font-size: 13px;
+    color: #676666;
+    display: inline;
+    margin: 0 auto;
+    padding: 5px 2px;
+    border-radius: 20px;
+    transition: background-color .3s ease-in-out;
+    @include mq("sm") {
+        padding: 10px 25px;
+        font-size: 15px;
+      font-weight: bold;
+      }
+      @include mq("sm") {
+        padding: 10px 25px;
+      }
+}
+
+.traffic-chart-menu p:hover {
+    cursor: pointer;
+}
+
+.traffic-chart-menu  p:nth-child(3),
+#item-selected {
+    color: $color-ternary;    
+    @include mq("sm") {
+        color: $white; 
+        background-color: $color-ternary;
+        box-shadow: 0 6px 6px -6px black;
+      }
+}
+
+#item-deselected {
+    color: #676666;
+    background-color: $white;
+    box-shadow: none;
+}
+
+
+.section {
+    margin: 120px auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.sub-section1,
+.sub-section2 {
+    height: 500px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 50px 30px;
+}
+
+.sub-section3,
+.sub-section4 {
+    height: 500px;
+    margin-bottom: -100px;
+}
+
+.sub-section2,
+.sub-section4 {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#bar-chart {
+}
+
+#doughnut-chart {
+    height: 250px;
+    width: 90%;
+}

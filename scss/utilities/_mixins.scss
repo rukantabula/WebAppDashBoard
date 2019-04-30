@@ -80,8 +80,6 @@
 
 @mixin mq($break) {
   $value: map-get($breakpoints, $break);
-  $sm: map-get($breakpoints, "sm");
-
   @include error-handler(
     $condition: (
       $value == null
@@ -89,15 +87,9 @@
     $statement: "'#{$break}' is not a valid breakpoint name."
   );
 
-  @if $value < $sm {
-    @media (max-width: $value) {
-      @content;
-    }
-  } @else {
     @media (min-width: $value) {
       @content;
     }
-  }
 }
 
 @mixin error-handler($condition, $statement) {

@@ -1,6 +1,11 @@
 .profile-img {
-  @include roundy(35px);
-  width: 47px;
-  height: 47px;
-  margin: 10px auto;
+  @include roundy(35px) {
+    width: 0px;
+    height: 0px;
+    @include mq("med") {
+      margin: 10px auto;
+      width: 47px;
+      height: 47px;
+    }
+  }
 }

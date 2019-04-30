@@ -1,36 +1,39 @@
-
 .menu-item {
+  padding: 15px;
+  border-left: 3px solid $color-secondary;
+  @include mq("med") {
     padding: 20px;
-    border-left: 3px solid $color-secondary;
-    transition: padding .5s ease-in-out;
+    transition: padding 0.5s ease-in-out;
+  }
 }
 
 .menu-item:hover {
+  cursor: pointer;
+  @include mq("med") {
     padding: 17px;
-    cursor: pointer;
+  }
 }
 
 #menu-item-selected {
-    border-left: 3px solid $color-ternary;
+  border-left: 3px solid $color-ternary;
 }
 
 #menu-item-deselected {
-    border-left: 3px solid $color-secondary;
-    opacity: .6;
+  border-left: 3px solid $color-secondary;
+  opacity: 0.6;
 }
 
 .right-border {
-    background-color: $color-ternary;
-    width: 5px;
+  background-color: $color-ternary;
+  width: 5px;
 }
-
 
 .members-icon,
 .visits-icon,
 .settings-icon {
-    opacity: .6;
+  opacity: 0.6;
 }
 
 .visits-icon {
-margin-top: 25px;
+  margin-top: 25px;
 }
