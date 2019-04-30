@@ -1,110 +1,125 @@
 .main {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    max-width: 1100px;
-    width: 80%;
-    margin: 20px auto;
-    @include mq("sm") {
-        width: 90%;
-      }
-    @include mq("med") {   
-    padding:10px 50px;
-        height: 400px;
-        width: 90%;
-      }
+  grid-column-start: 1;
+  grid-column-end: 3;
+  max-width: 1100px;
+  width: 80%;
+  margin: 20px auto;
+  @include mq("sm") {
+    width: 90%;
+  }
+  @include mq("med") {
+    padding: 10px 50px;
+    height: 400px;
+    width: 90%;
+  }
 }
 
 .traffic-chart {
+  height: 200px;
+  margin-bottom: 150px;
+  @include mq("sm") {
+    margin-top: 10px;
     height: 250px;
-    margin-bottom: 150px;
-    @include mq("med") {
-        height: 300px;
-      }
+  }
+  @include mq("med") {
+    margin-top: 0px;
+  }
 }
 
 .daily-traffic-chart,
 .mobile-user-chart {
-    height: 250px;
-    margin-bottom: 150px;
-    @include mq("sm") {
-        height: 200px;
-        width: 40%;
-        display: inline-block;
-      }
-      @include mq("med") {
-        height: 250px;
-      }
+  height: 250px;
+  margin-top: 0;
+  margin-bottom: 150px;
+  @include mq("sm") {
+    height: 200px;
+    width: 45%;
+    display: inline-block;
+  }
+  @include mq("med") {
+    width: 40%;
+    height: 300px;
+  }
 }
 
 .mobile-user-chart {
-    @include mq("sm") {
-        margin-left: 15%;
-      }
+  @include mq("sm") {
+    margin-left: 5%;
+  }
+  @include mq("med") {
+    margin-left: 15%;
+  }
 }
 
 .traffic-chart-title,
-.daily-chart-title ,
+.daily-chart-title,
 .user-chart-title,
 .social-stats-title,
 .activity-title,
 .members-title {
-    font-family: $font-stack-secondary;
-    font-size: 18px;
-    color: #676666;
+  font-family: $font-stack-secondary;
+  font-size: 18px;
+  color: #676666;
+}
+
+.traffic-chart-title {
+  @include mq("sm") {
+    margin-top: 100px;
+    margin-left: 0;
+  }
+  @include mq("med") {
+    margin-top: 0;
+    margin-left: 0;
+  }
 }
 
 .daily-chart-title,
-.user-chart-title  {
-    margin-left: 0px;
+.user-chart-title {
+  margin-left: 0px;
 }
-
-
 
 .traffic-chart-menu {
-    margin-left: 50px;
-    @include mq("sm") {
-        float: right;
-        margin-left: 0;
-      }
+  margin-left: 50px;
+  @include mq("sm") {
+    float: right;
+    margin-left: 0;
+  }
 }
 
-
-.traffic-chart-menu  p {
-    font-family: $font-stack-primary;
-    font-size: 13px;
-    color: #676666;
-    display: inline-block;
-    padding: 5px 2px;
-    border-radius: 20px;
-    transition: background-color .3s ease-in-out;
-    @include mq("sm") {
-        padding: 10px 20x;
-        font-size: 15px;
-      font-weight: bold;
-      }
-      @include mq("sm") {
-        padding: 10px 25px;
-      }
+.traffic-chart-menu p {
+  font-family: $font-stack-primary;
+  font-size: 13px;
+  color: #676666;
+  display: inline-block;
+  padding: 5px 2px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out;
+  @include mq("sm") {
+    padding: 10px 20x;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  @include mq("sm") {
+    padding: 10px 25px;
+  }
 }
 
 .traffic-chart-menu p:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.traffic-chart-menu  p:nth-child(3),
+.traffic-chart-menu p:nth-child(3),
 #item-selected {
-    color: $color-ternary;    
-    @include mq("sm") {
-        color: $white; 
-        background-color: $color-ternary;
-        box-shadow: 0 6px 6px -6px black;
-      }
+  color: $color-ternary;
+  @include mq("sm") {
+    color: $white;
+    background-color: $color-ternary;
+    box-shadow: 0 6px 6px -6px black;
+  }
 }
 
 #item-deselected {
-    color: #676666;
-    background-color: $white;
-    box-shadow: none;
+  color: #676666;
+  background-color: $white;
+  box-shadow: none;
 }
-
-

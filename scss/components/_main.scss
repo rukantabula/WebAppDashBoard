@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 65px auto;
   grid-gap: 10px;
+
   @include mq("med") {
     grid-template-columns: 75px auto;
   }
@@ -11,10 +12,9 @@
   background-color: $color-secondary;
 }
 
- .content {
+.content {
   height: 100%;
 }
-
 
 .dashboard-section-title {
   @include txt-style(
@@ -38,8 +38,6 @@
     width: 80%;
     margin-top: 0;
     float: right;
-    margin-top: 0px;
-    
   }
   @include mq("sm") {
     margin-top: -80px;
@@ -67,8 +65,8 @@
 
   @include mq("sm") {
     margin-right: 30px;
-   width: 200px;
-   margin-top: 30px;
+    width: 200px;
+    margin-top: 30px;
   }
 
   @include mq("med") {
@@ -118,7 +116,7 @@
       margin-top: 100px;
       height: 90px;
     }
-    
+
     @include mq("med") {
       height: 70px;
       margin-top: 0px;

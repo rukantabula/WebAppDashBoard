@@ -426,10 +426,10 @@ p {
 
 .user-detail {
   display: grid;
-  grid-template-columns: .1fr .1fr .1fr 1fr; }
+  grid-template-columns: 0.1fr 0.1fr 0.1fr 1fr; }
   @media (min-width: 1024px) {
     .user-detail {
-      grid-template-columns: 1fr .1fr 1fr 4fr; } }
+      grid-template-columns: 1fr 0.1fr 1fr 4fr; } }
 
 .app-name,
 .user-name,
@@ -618,8 +618,7 @@ p {
     height: 70px;
     width: 80%;
     margin-top: 0;
-    float: right;
-    margin-top: 0px; } }
+    float: right; } }
 @media (min-width: 545px) {
   .search-div {
     margin-top: -80px; } }
@@ -773,28 +772,37 @@ p {
       width: 90%; } }
 
 .traffic-chart {
-  height: 250px;
+  height: 200px;
   margin-bottom: 150px; }
+  @media (min-width: 545px) {
+    .traffic-chart {
+      margin-top: 10px;
+      height: 250px; } }
   @media (min-width: 768px) {
     .traffic-chart {
-      height: 300px; } }
+      margin-top: 0px; } }
 
 .daily-traffic-chart,
 .mobile-user-chart {
   height: 250px;
+  margin-top: 0;
   margin-bottom: 150px; }
   @media (min-width: 545px) {
     .daily-traffic-chart,
     .mobile-user-chart {
       height: 200px;
-      width: 40%;
+      width: 45%;
       display: inline-block; } }
   @media (min-width: 768px) {
     .daily-traffic-chart,
     .mobile-user-chart {
-      height: 250px; } }
+      width: 40%;
+      height: 300px; } }
 
 @media (min-width: 545px) {
+  .mobile-user-chart {
+    margin-left: 5%; } }
+@media (min-width: 768px) {
   .mobile-user-chart {
     margin-left: 15%; } }
 
@@ -807,6 +815,15 @@ p {
   font-family: "Fira Sans Extra Condensed", sans-serif;
   font-size: 18px;
   color: #676666; }
+
+@media (min-width: 545px) {
+  .traffic-chart-title {
+    margin-top: 100px;
+    margin-left: 0; } }
+@media (min-width: 768px) {
+  .traffic-chart-title {
+    margin-top: 0;
+    margin-left: 0; } }
 
 .daily-chart-title,
 .user-chart-title {
@@ -826,7 +843,7 @@ p {
   display: inline-block;
   padding: 5px 2px;
   border-radius: 20px;
-  transition: background-color .3s ease-in-out; }
+  transition: background-color 0.3s ease-in-out; }
   @media (min-width: 545px) {
     .traffic-chart-menu p {
       padding: 10px 20x;
