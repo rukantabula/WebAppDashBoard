@@ -776,35 +776,72 @@ p {
   margin-bottom: 150px; }
   @media (min-width: 545px) {
     .traffic-chart {
-      margin-top: 10px;
-      height: 250px; } }
+      height: 250px;
+      margin-top: 10px; } }
   @media (min-width: 768px) {
     .traffic-chart {
-      margin-top: 0px; } }
+      margin-top: 10px; } }
+
+@media (min-width: 545px) {
+  .other-charts {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); } }
 
 .daily-traffic-chart,
 .mobile-user-chart {
-  height: 250px;
   margin-top: 0;
-  margin-bottom: 150px; }
+  margin-bottom: 0px;
+  width: 90%; }
   @media (min-width: 545px) {
     .daily-traffic-chart,
     .mobile-user-chart {
-      height: 200px;
-      width: 45%;
       display: inline-block; } }
+
+.daily-traffic-chart {
+  height: 300px; }
+  @media (min-width: 545px) {
+    .daily-traffic-chart {
+      height: 300px;
+      width: 45%; } }
   @media (min-width: 768px) {
-    .daily-traffic-chart,
+    .daily-traffic-chart {
+      width: 50%; } }
+
+.mobile-user-chart {
+  height: 450px; }
+  @media (min-width: 545px) {
     .mobile-user-chart {
-      width: 40%;
-      height: 350px; } }
+      height: 300px;
+      width: 35%; } }
+  @media (min-width: 768px) {
+    .mobile-user-chart {
+      width: 40%; } }
+
+#bar-chart,
+#doughnut-chart {
+  padding-bottom: 80px;
+  padding-right: 20px;
+  padding-left: 20px; }
+  @media (min-width: 545px) {
+    #bar-chart,
+    #doughnut-chart {
+      padding-right: 35px;
+      padding-left: 35px; } }
+  @media (min-width: 768px) {
+    #bar-chart,
+    #doughnut-chart {
+      padding-right: 45px;
+      padding-left: 45px; } }
+
+#bar-chart {
+  padding-right: 50px; }
+
+#doughnut-chart {
+  margin-left: 10px; }
 
 @media (min-width: 545px) {
-  .mobile-user-chart {
-    margin-left: 5%; } }
-@media (min-width: 768px) {
-  .mobile-user-chart {
-    margin-left: 15%; } }
+  .daily-traffic-chart {
+    border-right: 1px solid rgba(0, 0, 0, 0.2); } }
 
 .traffic-chart-title,
 .daily-chart-title,
@@ -825,9 +862,9 @@ p {
     margin-top: 0;
     margin-left: 0; } }
 
-.daily-chart-title,
-.user-chart-title {
-  margin-left: 0px; }
+@media (min-width: 545px) {
+  .user-chart-title {
+    margin-left: 50px; } }
 
 .traffic-chart-menu {
   margin-left: 50px; }
@@ -872,12 +909,30 @@ p {
   box-shadow: none; }
 
 .social-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
   grid-column-start: 2;
-  grid-column-end: 3;
-  grid-gap: 40px; }
+  grid-column-end: 3; }
+
+.twitter-svg,
+.facebook-svg,
+.google-svg {
+  fill: #fff; }
+
+.twitter-bg,
+.facebook-bg,
+.google-bg {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  display: block;
+  background-Color: #7477bf;
+  margin: 20px 20px 20px 30px;
+  height: 80px;
+  width: 80px;
+  padding: 20px; }
+
+.facebook-bg {
+  padding: 10px; }
 
 .twitter,
 .facebook,
@@ -888,7 +943,8 @@ p {
   height: 140px;
   width: auto;
   border-radius: 5px;
-  background-color: #fbfbfb; }
+  background-color: #fbfbfb;
+  margin-bottom: 30px; }
 
 .twitter-title,
 .facebook-title,

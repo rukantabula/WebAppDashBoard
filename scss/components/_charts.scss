@@ -18,36 +18,88 @@
   height: 200px;
   margin-bottom: 150px;
   @include mq("sm") {
-    margin-top: 10px;
     height: 250px;
+    margin-top: 10px;
   }
   @include mq("med") {
-    margin-top: 0px;
+    margin-top: 10px;
   }
 }
-
+.other-charts {
+  @include mq("sm") {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
 .daily-traffic-chart,
 .mobile-user-chart {
-  height: 250px;
   margin-top: 0;
-  margin-bottom: 150px;
+  margin-bottom: 0px;
+  width: 90%;
   @include mq("sm") {
-    height: 200px;
-    width: 45%;
     display: inline-block;
   }
   @include mq("med") {
+   
+  }
+}
+
+.daily-traffic-chart {
+  height: 300px;
+  @include mq("sm") {
+    height: 300px;
+    width: 45%;
+  }
+  @include mq("med") {
+    width: 50%;
+  }
+}
+
+
+.mobile-user-chart {
+  height: 450px;
+  @include mq("sm") {
+    
+    height: 300px;
+    width: 35%;
+  }
+  @include mq("med") {
     width: 40%;
-    height: 350px;
+  }
+}
+
+#bar-chart,
+#doughnut-chart {
+  padding-bottom: 80px;
+  padding-right: 20px;
+    padding-left: 20px;
+  @include mq("sm") {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+  @include mq("med") {
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+}
+
+#bar-chart {
+  padding-right: 50px;
+}
+#doughnut-chart {
+margin-left: 10px;
+}
+
+.daily-traffic-chart {
+  @include mq("sm") {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
 
 .mobile-user-chart {
   @include mq("sm") {
-    margin-left: 5%;
   }
   @include mq("med") {
-    margin-left: 15%;
   }
 }
 
@@ -73,9 +125,11 @@
   }
 }
 
-.daily-chart-title,
 .user-chart-title {
-  margin-left: 0px;
+  @include mq("sm") {
+    margin-left: 50px;
+  }
+  
 }
 
 .traffic-chart-menu {
