@@ -608,7 +608,8 @@ p {
   margin-top: 25px; }
   @media (min-width: 768px) {
     .dashboard-section-title {
-      font-size: 25px; } }
+      font-size: 25px;
+      padding-left: 30px; } }
 
 @media (min-width: 768px) {
   .search-div {
@@ -913,9 +914,12 @@ p {
   box-shadow: none; }
 
 .social-stats {
-  margin: 0 auto;
+  margin: 20px auto;
   grid-column-start: 2;
   grid-column-end: 3; }
+
+.social-stats-title {
+  margin-top: 50px; }
 
 .twitter-svg,
 .facebook-svg,
@@ -1008,5 +1012,107 @@ p {
 @media (min-width: 768px) {
   .stats {
     padding-left: 0px; } }
+
+@media (min-width: 545px) {
+  .members-activity-container {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); } }
+
+@media (min-width: 768px) {
+  .mb,
+  .ac {
+    display: inline-block; } }
+
+.ac {
+  margin-left: 0; }
+  @media (min-width: 768px) {
+    .ac {
+      margin-left: 0px; } }
+  @media (min-width: 768px) {
+    .ac {
+      margin-left: 40px; } }
+
+.user-section {
+  margin: 0px auto;
+  grid-column-start: 1;
+  grid-column-end: 3; }
+
+.members-section {
+  margin-top: 60px; }
+
+.members-section-title {
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-size: 18px;
+  color: #676666;
+  margin-bottom: 50px; }
+
+.members,
+.activity {
+  height: 170px; }
+  @media (min-width: 768px) {
+    .members,
+    .activity {
+      height: 90px; } }
+
+.activity {
+  border-left: 1px solid rgba(0, 0, 0, 0.2); }
+
+.member-img {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  display: block;
+  margin: 30px auto 0 auto;
+  height: 70px;
+  width: 70px; }
+  @media (min-width: 768px) {
+    .member-img {
+      margin: -15px auto;
+      height: 55px;
+      width: 55px; } }
+
+.member-details,
+.date {
+  text-align: center; }
+  @media (min-width: 768px) {
+    .member-details,
+    .date {
+      text-align: left; } }
+
+@media (min-width: 768px) {
+  .member-img,
+  .member-details,
+  .date {
+    display: inline-block; } }
+
+@media (min-width: 768px) {
+  .date {
+    margin-left: 30px; } }
+
+.member-details {
+  margin-left: 20px; }
+
+.name,
+.email,
+.date {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 14px; }
+
+.email,
+.date {
+  margin-top: -10px; }
+
+.name {
+  margin-top: 10px; }
+  @media (min-width: 768px) {
+    .name {
+      margin-top: 0px; } }
+
+.email {
+  color: rgba(115, 119, 191, 0.8); }
+
+.name,
+.date {
+  color: #676666; }
 
 /*# sourceMappingURL=styles.css.map */

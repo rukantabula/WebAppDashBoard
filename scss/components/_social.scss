@@ -1,7 +1,11 @@
 .social-stats {
-  margin: 0 auto;
+  margin: 20px auto;
   grid-column-start: 2;
   grid-column-end: 3;
+}
+
+.social-stats-title {
+  margin-top: 50px;
 }
 
 .twitter-svg,

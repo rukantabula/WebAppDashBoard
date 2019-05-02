@@ -1,0 +1,121 @@
+.members-activity-container {
+    @include mq("sm") {
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+}
+
+.mb,
+.ac {
+    @include mq("med") {
+        display: inline-block;
+      }
+    
+}
+
+.ac {
+    margin-left: 0;
+    @include mq("med") {
+        margin-left: 0px;
+      }
+      @include mq("med") {
+        margin-left: 40px;
+      }
+   
+}
+
+.user-section {
+  margin: 0px auto;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.members-section {
+    margin-top: 60px;
+}
+
+.members-section-title {
+    font-family: $font-stack-secondary;
+    font-size: 18px;
+    color: #676666;
+    margin-bottom: 50px;
+}
+
+.members,
+.activity {
+  height: 170px;
+  @include mq("med") {
+    height: 90px;
+  }
+}
+
+.activity {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.member-img {
+  @include roundy(20%);
+  margin: 30px auto 0 auto;
+  height: 70px;
+  width: 70px;
+  @include mq("med") {
+    margin: -15px auto;
+    height: 55px;
+    width: 55px;
+  }
+}
+
+.member-details,
+.date {
+  text-align: center;
+  @include mq("med") {
+    text-align: left;
+  }
+}
+
+.member-img,
+.member-details,
+.date {
+  @include mq("med") {
+    display: inline-block;
+  }
+}
+.date {
+  @include mq("med") {
+    margin-left: 30px;
+  }
+}
+
+.member-details {
+  margin-left: 20px;
+  @include mq("med") {
+  }
+}
+
+.name,
+.email,
+.date {
+  font-family: $font-stack-primary;
+  font-size: 14px;
+}
+
+.email,
+.date {
+  margin-top: -10px;
+}
+
+.name {
+  margin-top: 10px;
+  @include mq("med") {
+    margin-top: 0px;
+  }
+}
+
+.email {
+  color: rgba(115, 119, 191, 0.8);
+}
+
+.name,
+.date {
+  color: #676666;
+}
