@@ -102,6 +102,8 @@
 .email,
 .date {
   margin-top: -10px;
+  max-width:300px;
+    word-wrap:break-word;
 }
 
 .name {
@@ -110,6 +112,7 @@
     margin-top: 0px;
   }
 }
+
 
 .email {
   color: rgba(115, 119, 191, 0.8);

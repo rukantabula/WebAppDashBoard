@@ -148,25 +148,34 @@ const chartData = () => {
 };
 
 const socialStats = () => {
-  const data = {
-    twitter: "10,345",
-    facebook: "8,739",
-    google: "2,530"
-  };
+  const data = [
+    {
+      name: 'twitter',
+      value: '10,345'
+    },
+    {
+      name: 'facebook',
+      value: '8,739'
+    },
+    {
+      name: 'google',
+      value: '2,530'
+    }
+  ];
   return data;
 };
 
-const memberData = () => {
+const memberActivityData = () => {
   const data = [
     {
-      details: {
+      member: {
         firstName: "Victoria",
         lastName: "Chambers",
         email: "victoria.chambers80@example.com",
         regDate: "10/15/15",
         img: "MEMBER-1"
       },
-      memberActivity: [
+      activity: [
         {
           type: "comment",
           thread: "YourApp's SEO Tips",
@@ -175,14 +184,14 @@ const memberData = () => {
       ]
     },
     {
-      details: {
+      member: {
         firstName: "Dale",
         lastName: "Byrd",
         email: "dale.byrd52@example.com",
         regDate: "10/15/15",
         img: "MEMBER-2"
       },
-      memberActivity: [
+      activity: [
         {
           type: "post",
           thread: "Facebooks Changes for 2016",
@@ -191,14 +200,14 @@ const memberData = () => {
       ]
     },
     {
-      details: {
+      member: {
         firstName: "Dawn",
         lastName: "Wood",
         email: "dawn.wood16@example.com",
         regDate: "10/15/15",
         img: "MEMBER-3"
       },
-      memberActivity: [
+      activity: [
         {
           type: "comment",
           thread: "Facebooks Changes for 2016",
@@ -207,14 +216,14 @@ const memberData = () => {
       ]
     },
     {
-      details: {
+      member: {
         firstName: "Dan",
         lastName: "Oliver",
         email: "dan.oliver82@example.com",
         regDate: "10/15/15",
         img: "MEMBER-4"
       },
-      memberActivity: [
+      activity: [
         {
           type: "comment",
           thread: "YourApp's SEO Tips",
