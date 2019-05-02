@@ -26,9 +26,9 @@
   }
 }
 .other-charts {
-  @include mq("sm") {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  @include mq("med") {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
 .daily-traffic-chart,
@@ -36,34 +36,26 @@
   margin-top: 0;
   margin-bottom: 0px;
   width: 90%;
-  @include mq("sm") {
-    display: inline-block;
-  }
   @include mq("med") {
-   
+    display: inline-block;
   }
 }
 
 .daily-traffic-chart {
   height: 300px;
-  @include mq("sm") {
-    height: 300px;
-    width: 45%;
-  }
   @include mq("med") {
+    height: 300px;
     width: 50%;
   }
 }
 
-
 .mobile-user-chart {
-  height: 450px;
+  height: 400px;
   @include mq("sm") {
-    
-    height: 300px;
-    width: 35%;
+    height: 500px;
   }
   @include mq("med") {
+    height: 300px;
     width: 40%;
   }
 }
@@ -72,10 +64,10 @@
 #doughnut-chart {
   padding-bottom: 80px;
   padding-right: 20px;
-    padding-left: 20px;
-  @include mq("sm") {
-    padding-right: 35px;
-    padding-left: 35px;
+  padding-left: 20px;
+  @include mq("med") {
+    padding-right: 45px;
+    padding-left: 45px;
   }
   @include mq("med") {
     padding-right: 45px;
@@ -87,19 +79,21 @@
   padding-right: 50px;
 }
 #doughnut-chart {
-margin-left: 10px;
+  margin-left: 10px;
 }
 
 .daily-traffic-chart {
-  @include mq("sm") {
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  @include mq("med") {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
 
 .mobile-user-chart {
   @include mq("sm") {
+    padding: 30px 60px;
   }
   @include mq("med") {
+    padding: 0;
   }
 }
 
@@ -115,7 +109,7 @@ margin-left: 10px;
 }
 
 .traffic-chart-title {
-  @include mq("sm") {
+  @include mq("med") {
     margin-top: 100px;
     margin-left: 0;
   }
@@ -126,15 +120,14 @@ margin-left: 10px;
 }
 
 .user-chart-title {
-  @include mq("sm") {
+  @include mq("med") {
     margin-left: 50px;
   }
-  
 }
 
 .traffic-chart-menu {
   margin-left: 50px;
-  @include mq("sm") {
+  @include mq("med") {
     float: right;
     margin-left: 0;
   }

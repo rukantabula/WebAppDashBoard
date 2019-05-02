@@ -2,7 +2,6 @@
   margin: 0 auto;
   grid-column-start: 2;
   grid-column-end: 3;
-  
 }
 
 .twitter-svg,
@@ -16,28 +15,48 @@
 .google-bg {
   @include roundy(70%);
   background-Color: $color-primary;
-  margin: 20px 20px 20px 30px;
-  height: 80px;
-  width: 80px;
-  padding: 20px;
-  
+  margin: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+.twitter-bg,
+.google-bg {
+  padding:12px;
 }
 
 .facebook-bg {
-  padding: 10px;
+  padding: 0;
 }
+
+.twitter-bg,
+.twitter-stat {
+  display: inline-block;
+}
+
 
 .twitter,
 .facebook,
 .google {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  height: 140px;
+  height: 100px;
   width: auto;
   border-radius: 5px;
   background-color: #fbfbfb;
-  margin-bottom: 30px;
+  margin: 20px auto;
+  padding-left: 10px;
+  @include mq("sm") {
+    padding-left: 30px;
+  }
+  @include mq("med") {
+    padding-left: 0px;
+  }
+  @include mq("med") {
+    display: inline-block;
+    width: 30%;
+    margin-left: 10px;
+    height: 110px;
+  }
 }
 
 .twitter-title,
@@ -45,9 +64,9 @@
 .google-title {
   font-family: $font-stack-primary;
   color: $color-primary;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin: 30px 0 5px 10px; 
+  margin: -75px 0 5px 100px; 
 }
 
 .twitter-stat,
@@ -55,7 +74,22 @@
 .google-stat {
   font-family: $font-stack-ternary;
   color: #676666;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 100;
-  margin: 0 0 0 10px; 
+  margin: 0 0 0 100px; 
+  @include mq("sm") {
+    font-size: 25px;
+  }
+  @include mq("med") {
+    font-size: 30px;
+  }
+}
+
+.stats {
+  @include mq("sm") {
+    padding-left: 20px;
+  }
+  @include mq("med") {
+    padding-left: 0px;
+  }
 }

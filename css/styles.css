@@ -782,7 +782,7 @@ p {
     .traffic-chart {
       margin-top: 10px; } }
 
-@media (min-width: 545px) {
+@media (min-width: 768px) {
   .other-charts {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); } }
@@ -792,29 +792,26 @@ p {
   margin-top: 0;
   margin-bottom: 0px;
   width: 90%; }
-  @media (min-width: 545px) {
+  @media (min-width: 768px) {
     .daily-traffic-chart,
     .mobile-user-chart {
       display: inline-block; } }
 
 .daily-traffic-chart {
   height: 300px; }
-  @media (min-width: 545px) {
-    .daily-traffic-chart {
-      height: 300px;
-      width: 45%; } }
   @media (min-width: 768px) {
     .daily-traffic-chart {
+      height: 300px;
       width: 50%; } }
 
 .mobile-user-chart {
-  height: 450px; }
+  height: 400px; }
   @media (min-width: 545px) {
     .mobile-user-chart {
-      height: 300px;
-      width: 35%; } }
+      height: 500px; } }
   @media (min-width: 768px) {
     .mobile-user-chart {
+      height: 300px;
       width: 40%; } }
 
 #bar-chart,
@@ -822,11 +819,11 @@ p {
   padding-bottom: 80px;
   padding-right: 20px;
   padding-left: 20px; }
-  @media (min-width: 545px) {
+  @media (min-width: 768px) {
     #bar-chart,
     #doughnut-chart {
-      padding-right: 35px;
-      padding-left: 35px; } }
+      padding-right: 45px;
+      padding-left: 45px; } }
   @media (min-width: 768px) {
     #bar-chart,
     #doughnut-chart {
@@ -839,9 +836,16 @@ p {
 #doughnut-chart {
   margin-left: 10px; }
 
-@media (min-width: 545px) {
+@media (min-width: 768px) {
   .daily-traffic-chart {
     border-right: 1px solid rgba(0, 0, 0, 0.2); } }
+
+@media (min-width: 545px) {
+  .mobile-user-chart {
+    padding: 30px 60px; } }
+@media (min-width: 768px) {
+  .mobile-user-chart {
+    padding: 0; } }
 
 .traffic-chart-title,
 .daily-chart-title,
@@ -853,7 +857,7 @@ p {
   font-size: 18px;
   color: #676666; }
 
-@media (min-width: 545px) {
+@media (min-width: 768px) {
   .traffic-chart-title {
     margin-top: 100px;
     margin-left: 0; } }
@@ -862,13 +866,13 @@ p {
     margin-top: 0;
     margin-left: 0; } }
 
-@media (min-width: 545px) {
+@media (min-width: 768px) {
   .user-chart-title {
     margin-left: 50px; } }
 
 .traffic-chart-menu {
   margin-left: 50px; }
-  @media (min-width: 545px) {
+  @media (min-width: 768px) {
     .traffic-chart-menu {
       float: right;
       margin-left: 0; } }
@@ -926,42 +930,83 @@ p {
   border-radius: 50%;
   display: block;
   background-Color: #7477bf;
-  margin: 20px 20px 20px 30px;
-  height: 80px;
-  width: 80px;
-  padding: 20px; }
+  margin: 20px;
+  height: 60px;
+  width: 60px; }
+
+.twitter-bg,
+.google-bg {
+  padding: 12px; }
 
 .facebook-bg {
-  padding: 10px; }
+  padding: 0; }
+
+.twitter-bg,
+.twitter-stat {
+  display: inline-block; }
 
 .twitter,
 .facebook,
 .google {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  height: 140px;
+  height: 100px;
   width: auto;
   border-radius: 5px;
   background-color: #fbfbfb;
-  margin-bottom: 30px; }
+  margin: 20px auto;
+  padding-left: 10px; }
+  @media (min-width: 545px) {
+    .twitter,
+    .facebook,
+    .google {
+      padding-left: 30px; } }
+  @media (min-width: 768px) {
+    .twitter,
+    .facebook,
+    .google {
+      padding-left: 0px; } }
+  @media (min-width: 768px) {
+    .twitter,
+    .facebook,
+    .google {
+      display: inline-block;
+      width: 30%;
+      margin-left: 10px;
+      height: 110px; } }
 
 .twitter-title,
 .facebook-title,
 .google-title {
   font-family: "Fira Sans", sans-serif;
   color: #7477bf;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin: 30px 0 5px 10px; }
+  margin: -75px 0 5px 100px; }
 
 .twitter-stat,
 .facebook-stat,
 .google-stat {
   font-family: "Open Sans Condensed", sans-serif;
   color: #676666;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 100;
-  margin: 0 0 0 10px; }
+  margin: 0 0 0 100px; }
+  @media (min-width: 545px) {
+    .twitter-stat,
+    .facebook-stat,
+    .google-stat {
+      font-size: 25px; } }
+  @media (min-width: 768px) {
+    .twitter-stat,
+    .facebook-stat,
+    .google-stat {
+      font-size: 30px; } }
+
+@media (min-width: 545px) {
+  .stats {
+    padding-left: 20px; } }
+@media (min-width: 768px) {
+  .stats {
+    padding-left: 0px; } }
 
 /*# sourceMappingURL=styles.css.map */
