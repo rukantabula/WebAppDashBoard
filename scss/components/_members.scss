@@ -75,7 +75,8 @@
   border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.member-img {
+.member-img,
+.activity-img {
   @include roundy(20%);
   margin: 30px auto 0 auto;
   height: 70px;
@@ -122,7 +123,8 @@
 
 .name,
 .email,
-.date {
+.date,
+.activity-message {
   font-family: $font-stack-primary;
   font-size: 13px;
 }
@@ -152,4 +154,46 @@
 .name,
 .date {
   color: #676666;
+}
+
+.activity-message {
+  font-family: $color-secondary;
+  color: #676666;
+  max-width: 270px;
+  word-wrap: break-word;
+
+  @include mq("lg") {
+    max-width: 200px;
+  }
+
+  @include mq("xlg") {
+    max-width: 250px;
+  }
+}
+
+.activity-img,
+.activity-details {
+  display: inline-block;
+}
+
+.activity-message {
+  padding-left: 10px;
+}
+
+.activity-message,
+.next {
+  color: rgba(115, 119, 191, 0.8);
+  display: inline-block;
+}
+
+.next {
+  height: 25px;
+  width: 25px;
+  opacity: .5;
+  display: none;
+  @include mq("xlg") {
+    display: block;
+    float: right;
+    margin: 15px auto 0 auto;;
+  }
 }

@@ -1081,7 +1081,8 @@ p {
 .activity {
   border-left: 1px solid rgba(0, 0, 0, 0.2); }
 
-.member-img {
+.member-img,
+.activity-img {
   width: 20%;
   height: 20%;
   border-radius: 50%;
@@ -1090,12 +1091,14 @@ p {
   height: 70px;
   width: 70px; }
   @media (min-width: 768px) {
-    .member-img {
+    .member-img,
+    .activity-img {
       margin: -15px auto;
       height: 55px;
       width: 55px; } }
   @media (min-width: 1024px) {
-    .member-img {
+    .member-img,
+    .activity-img {
       height: 55px;
       width: 55px; } }
 
@@ -1125,7 +1128,8 @@ p {
 
 .name,
 .email,
-.date {
+.date,
+.activity-message {
   font-family: "Fira Sans", sans-serif;
   font-size: 13px; }
 
@@ -1150,5 +1154,40 @@ p {
 .name,
 .date {
   color: #676666; }
+
+.activity-message {
+  font-family: #4d4c72;
+  color: #676666;
+  max-width: 270px;
+  word-wrap: break-word; }
+  @media (min-width: 1024px) {
+    .activity-message {
+      max-width: 200px; } }
+  @media (min-width: 1100px) {
+    .activity-message {
+      max-width: 250px; } }
+
+.activity-img,
+.activity-details {
+  display: inline-block; }
+
+.activity-message {
+  padding-left: 10px; }
+
+.activity-message,
+.next {
+  color: rgba(115, 119, 191, 0.8);
+  display: inline-block; }
+
+.next {
+  height: 25px;
+  width: 25px;
+  opacity: .5;
+  display: none; }
+  @media (min-width: 1100px) {
+    .next {
+      display: block;
+      float: right;
+      margin: 15px auto 0 auto; } }
 
 /*# sourceMappingURL=styles.css.map */
