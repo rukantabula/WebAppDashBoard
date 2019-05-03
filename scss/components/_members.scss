@@ -26,7 +26,7 @@
       @include mq("xlg") {
         
         border-left: 1px solid rgba(0, 0, 0, 0.2);
-        padding-left: 40px;
+        padding-left: 30px;
       }
    
 }
@@ -159,30 +159,49 @@
 .activity-message {
   font-family: $color-secondary;
   color: #676666;
-  max-width: 270px;
-  word-wrap: break-word;
+
+
+  @include mq("med") {
+    max-width: 270px;
+    word-wrap: break-word;
+  }
 
   @include mq("lg") {
-    max-width: 200px;
+    max-width: 270px;
   }
 
   @include mq("xlg") {
-    max-width: 250px;
+    max-width: 240px;
   }
 }
 
 .activity-img,
 .activity-details {
-  display: inline-block;
+  @include mq("xlg") {
+    display: inline-block;
+  }
 }
+
+.activity-img {
+  display: none;
+  @include mq("xlg") {
+    display: inline-block;
+  }
+}
+
+
 
 .activity-message {
   padding-left: 10px;
+  text-align: center;
+  @include mq("med") {
+    text-align: left;
+  }
 }
 
 .activity-message,
 .next {
-  color: rgba(115, 119, 191, 0.8);
+  color: #676666;
   display: inline-block;
 }
 
@@ -191,6 +210,7 @@
   width: 25px;
   opacity: .5;
   display: none;
+  vertical-align: middle;
   @include mq("xlg") {
     display: block;
     float: right;
