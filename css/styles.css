@@ -771,7 +771,7 @@ p {
     .main {
       padding: 10px 50px;
       height: 400px;
-      width: 90%; } }
+      width: 100%; } }
 
 .traffic-chart {
   height: 200px;
@@ -1167,7 +1167,7 @@ p {
       max-width: 270px; } }
   @media (min-width: 1200px) {
     .activity-message {
-      max-width: 240px; } }
+      max-width: 280px; } }
 
 @media (min-width: 1200px) {
   .activity-img,
