@@ -19,6 +19,7 @@
 }
 
 .ac {
+      margin-left: 20px;
       @include mq("med") {
         margin-left: 40px;
       }
@@ -66,8 +67,18 @@
   }
   @include mq("lg") {
     
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 120px;
+  }
+  @include mq("xlg") {
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.members:nth-child(5),
+.activity:nth-child(5) {
+  @include mq("lg") {
+  border:none;
   }
 }
 
@@ -83,10 +94,6 @@
   width: 70px;
   @include mq("med") {
     margin: -15px auto;
-    height: 55px;
-    width: 55px;
-  }
-  @include mq("lg") {
     height: 55px;
     width: 55px;
   }
@@ -181,6 +188,15 @@
     display: inline-block;
   }
 }
+
+
+.activity-details {
+
+  @include mq("xlg") {
+    margin-top: 20px;
+  }
+}
+
 
 .activity-img {
   display: none;
