@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const memberSection = styleElement('div', 'members');
       const memberDetails = styleElement('div', 'member-details');
-      const name = styleElement('p', 'name', `${item.member.firstName} ${item.member.firstName}`);
+      const name = styleElement('p', 'name', `${item.member.firstName} ${item.member.lastName}`);
       const email = styleElement('p', 'email', item.member.email);
       const regDate = styleElement('p', 'date', item.member.regDate);
       const memberImg = styleImg('member-img', item.member.img, item.member.img);
@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
       memberActivitySection.appendChild(memberSection);
     });
   };
-
 
   renderUserDetails();
   renderMenuItems();

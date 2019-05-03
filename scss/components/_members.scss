@@ -7,19 +7,26 @@
 
 .mb,
 .ac {
-    @include mq("med") {
-        display: inline-block;
+  padding-bottom: 30px;
+    @include mq("sm") {
+        width: 100%;
       }
-    
+      @include mq("med") {
+        display: inline-block;
+        width: 40%;
+      }
+
 }
 
 .ac {
-    margin-left: 0;
-    @include mq("med") {
-        margin-left: 0px;
-      }
       @include mq("med") {
         margin-left: 40px;
+      }
+
+      @include mq("xlg") {
+        
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+        padding-left: 40px;
       }
    
 }
@@ -28,24 +35,39 @@
   margin: 0px auto;
   grid-column-start: 1;
   grid-column-end: 3;
+  @include mq("med") {
+    margin-top: 100px;
+  }
 }
 
-.members-section {
-    margin-top: 60px;
-}
 
 .members-section-title {
     font-family: $font-stack-secondary;
     font-size: 18px;
     color: #676666;
     margin-bottom: 50px;
+
 }
 
 .members,
 .activity {
   height: 170px;
-  @include mq("med") {
+  align-content: center; 
+  width: 100%;
+  margin-bottom: 20px;
+  @include mq("xlg") {
     height: 90px;
+  }
+  @include mq("sm") {
+    height: 150px;
+  }
+  @include mq("med") {
+    height: 130px;
+  }
+  @include mq("lg") {
+    
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 120px;
   }
 }
 
@@ -63,12 +85,16 @@
     height: 55px;
     width: 55px;
   }
+  @include mq("lg") {
+    height: 55px;
+    width: 55px;
+  }
 }
 
 .member-details,
 .date {
   text-align: center;
-  @include mq("med") {
+  @include mq("xlg") {
     text-align: left;
   }
 }
@@ -76,19 +102,21 @@
 .member-img,
 .member-details,
 .date {
-  @include mq("med") {
+  @include mq("xlg") {
     display: inline-block;
   }
 }
 .date {
-  @include mq("med") {
-    margin-left: 30px;
+  @include mq("xlg") {
+    float: right;
+    padding-top: 50px;
   }
 }
 
 .member-details {
-  margin-left: 20px;
   @include mq("med") {
+    margin-top: 20px;
+    margin-left: 10px;
   }
 }
 
@@ -96,14 +124,17 @@
 .email,
 .date {
   font-family: $font-stack-primary;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .email,
 .date {
   margin-top: -10px;
-  max-width:300px;
-    word-wrap:break-word;
+  @include mq("med") {
+    max-width:400px;
+    word-wrap:break-word
+  }
+;
 }
 
 .name {

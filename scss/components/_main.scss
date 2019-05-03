@@ -3,6 +3,7 @@
   grid-template-columns: 65px auto;
   grid-gap: 10px;
 
+  height: 300px;
   @include mq("med") {
     grid-template-columns: 75px auto;
   }
@@ -13,7 +14,8 @@
 }
 
 .content {
-  height: 100%;
+  
+  height:200vh;
 }
 
 .dashboard-section-title {
