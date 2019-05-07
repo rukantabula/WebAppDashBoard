@@ -20,8 +20,11 @@
 
 .ac {
       margin-left: 20px;
-      @include mq("med") {
+      @include mq("sm") {
         margin-left: 40px;
+      }
+      @include mq("med") {
+        margin-left: 80px;
       }
 
       @include mq("xlg") {

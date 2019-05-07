@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Web App Dashboard</title>
+  <title>Your App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
@@ -34,6 +35,8 @@
           <input class="dashboard-searchInput" type="search" placeholder="Search" />
         </div>
       </div>
+
+      <!-- Alert -->
       <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Alert </strong>
@@ -41,6 +44,8 @@
         Curabitur blandit tempus porttitor.
       </div>
       <div class="main">
+
+        <!-- Charts -->
         <div class="traffic-chart">
           <p class="traffic-chart-title">TRAFFIC</p>
           <div class="traffic-chart-menu">
@@ -63,6 +68,7 @@
           </div>
         </div>
 
+        <!-- Social Stats -->
         <p class="social-stats-title">SOCIAL STATS</p>
         <div class="social-stats">
           <div class="twitter">
@@ -91,56 +97,44 @@
           </div>
         </div>
 
+        <!-- New Members and Recent activities  -->
         <div class="members-activity-container">
           <div class="members-section mb">
-            <p class="members-section-title">NEW MEMBERS</p>          
+            <p class="members-section-title">NEW MEMBERS</p>
           </div>
-
           <div class="members-section ac">
             <p class="members-section-title">RECENT ACTIVITIES</p>
-            <div class="members">
-              <img class="activity-img" src="images/MEMBER-1.jpg" />
-              <div class="activity-details">
-                <p class="activity-message">Victoria Chambers commented on <strong>YourApp's SEO Tips</strong>
-                  4 hours ago</p>
-                  <img class="next" src="https://img.icons8.com/ios/50/000000/more-than.png">
-              </div>
-              
-            </div>
-            <div class="members">
-              <img class="activity-img" src="images/MEMBER-2.jpg" />
-              <div class="activity-details">
-                <p class="activity-message">Victoria Chambers commented on <strong>YourApp's SEO Tips</strong>
-                  4 hours ago</p>
-                  <img class="next" src="https://img.icons8.com/ios/50/000000/more-than.png">
-              </div>
-              
-            </div>
-            <div class="members">
-              <img class="activity-img" src="images/MEMBER-3.jpg" />
-              <div class="activity-details">
-                <p class="activity-message">Victoria Chambers commented on <strong>YourApp's SEO Tips</strong>
-                  4 hours ago</p>
-                  <img class="next" src="https://img.icons8.com/ios/50/000000/more-than.png">
-              </div>
-              
-            </div>
-            <div class="members">
-              <img class="activity-img" src="images/MEMBER-4.jpg" />
-              <div class="activity-details">
-                <p class="activity-message">Victoria Chambers commented on <strong>YourApp's SEO Tips</strong>
-                  4 hours ago</p>
-                  <img class="next" src="https://img.icons8.com/ios/50/000000/more-than.png">
-              </div>
-              
-            </div>
           </div>
         </div>
 
+         <!-- Search and Settings  -->
+         <div class="members-activity-container">
+            <div class="members-section mb">
+              <p class="message-title">MESSAGE USER</p>
+              <form>
+                  <input class="searchInput" type="search" placeholder="Search for user" list="member-list"/>
+                  <datalist id="member-list"></datalist>
+                  <textarea class="text-area" rows="4" cols="50" placeholder="Message..."></textarea>
+                  <button class="send" type="button">SEND</button>
+                </form>
+            </div>
+            <div class="members-section ac">
+              <p class="settings-title">SETTINGS</p>
+              <p class="email-settings">Send Email Notifications</p>
+              <p class="profile-settings">Set Profile to Public</p>
+              <!-- <div class="switch">
+                  <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round"  type="checkbox">
+                  <label for="cmn-toggle-1"></label>
+                </div> -->
+              <button class="submit" type="button">SUBMIT</button>
+              <button class="cancel disabled" type="button">CANCEL</button>
+            </div>
+          </div>
       </div>
     </div>
     <script src="js/data.js"></script>
     <script src="js/chart.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
