@@ -50,9 +50,9 @@
 
 .td {
   @include txt-style($font: $font-stack-ternary);
-  @include txt-style($font: 10);
+  @include txt-style($size: 10px);
   @include mq("sm") {
-    @include txt-style($font: 14);
+    @include txt-style($size: 14px);
   }
 }
 
