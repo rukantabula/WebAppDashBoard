@@ -114,7 +114,7 @@
               <form>
                   <input class="searchInput" type="search" placeholder="Search for user" list="member-list"/>
                   <datalist id="member-list"></datalist>
-                  <textarea class="text-area" rows="4" cols="50" placeholder="Message..."></textarea>
+                  <textarea class="text-area" rows="6" cols="50" placeholder="Message..."></textarea>
                   <button class="send" type="button">SEND</button>
                 </form>
             </div>
@@ -135,6 +135,19 @@
                 <span class="switch-label" data-on="On" data-off="Off"></span> 
                 <span class="switch-handle"></span> 
               </label>
+            </div>
+            <div class="timezone_select">
+              <select id="timezone">
+                <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+                <option value="-10:00">(GMT -10:00) Hawaii</option>
+                <option value="-09:50">(GMT -9:30) Taiohae</option>
+                <option value="-09:00">(GMT -9:00) Alaska</option>
+                <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+              </select>
             </div>
               <button class="submit" type="button">SUBMIT</button>
               <button class="cancel disabled" type="button">CANCEL</button>

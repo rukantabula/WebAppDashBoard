@@ -1223,7 +1223,8 @@ p {
   color: #676666; }
 
 .searchInput,
-.text-area {
+.text-area,
+#timezone {
   color: #676666;
   font-family: "Fira Sans Extra Condensed", sans-serif;
   font-size: 16px;
@@ -1235,17 +1236,24 @@ p {
   transition: color 1s ease-in-out;
   outline: 0; }
 
-.searchInput {
+.searchInput,
+#timezone {
   height: 30px;
   padding: 0 10px 0 15px; }
   @media (min-width: 545px) {
-    .searchInput {
+    .searchInput,
+    #timezone {
       margin-top: 30px; } }
   @media (min-width: 768px) {
-    .searchInput {
+    .searchInput,
+    #timezone {
       font-size: 18px;
       height: 40px;
       margin-top: 12px; } }
+
+#timezone {
+  width: 90%;
+  margin: 20px 0; }
 
 .text-area:focus,
 .searchInput:focus {
@@ -1286,7 +1294,7 @@ p {
   margin: 29px 0; }
 
 .profile-settings {
-  margin-bottom: 70px; }
+  margin-bottom: 10px; }
 
 .profile-settings,
 .switch-1 {

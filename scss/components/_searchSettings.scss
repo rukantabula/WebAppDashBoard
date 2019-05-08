@@ -7,7 +7,8 @@
 
 
 .searchInput,
-.text-area {
+.text-area,
+#timezone  {
     @include txt-style(
         $size: 16px,
         $color: #676666,
@@ -23,7 +24,8 @@
       }
 }
 
-.searchInput {
+.searchInput,
+#timezone {
     height: 30px;
     
     padding: 0 10px 0 15px;
@@ -36,10 +38,15 @@
       @include txt-style($size: 18px) {
         height: 40px;
         margin-top: 12px;
-       
       }
     }
   }
+
+  #timezone {
+    width: 90%;
+    margin: 20px 0;
+  }
+
 
   .text-area:focus,
   .searchInput:focus {
@@ -89,7 +96,7 @@
   }
 
   .profile-settings{
-      margin-bottom: 70px;
+      margin-bottom: 10px;
   }
 
   .profile-settings,
