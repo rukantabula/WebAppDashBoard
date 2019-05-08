@@ -10,11 +10,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const textArea = document.querySelector('.text-area');
   const sendButton = document.querySelector('.send');
   const memberList = document.getElementById('member-list');
+  const emailSwitch = document.getElementById('emailSwitch');
+  const profileSwitch = document.getElementById('profileSwitch');;
   let newMemberList;
   const data = userData();
-
   let notifMessages = data.notifications;
 
+  // UI elements to render
+  const UIElements = ['userDetails', 'menuItems', 'notifWindow', 'socialStats', 'memberActivity','settings'];
+
+  // Event listeners
+  const eventListenerActions = [
+    {
+      element: notifButton,
+      action: 'click',
+      event: 'showNotificationWindow'
+    },
+    {
+      element: notifWindowCloseButton,
+      action: 'click',
+      event: 'closeNotificationWindow'
+    },
+    {
+      element: menu,
+      action: 'click',
+      event: 'navigateToSection'
+    },
+    {
+      element: searchInput,
+      action: 'input',
+      event: 'searchMembers'
+    },
+    {
+      element: sendButton,
+      action: 'click',
+      event: 'sendEmail'
+    },
+    {
+      element: emailSwitch,
+      action: 'click',
+      event: 'saveSettings'
+    },
+    {
+      element: profileSwitch,
+      action: 'click',
+      event: 'saveSettings'
+    }
+  ];
+
+  // Event Listener Actions
   const eventActions = {
     showNotificationWindow: () => {
       notifWindow.style.display = "block";
@@ -32,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(item => item.parentNode.removeChild(item));
 
       notifCloseSectionText.innerHTML = "";
-      renderNotifWindow(notifMessages);
+      render.notifWindow(notifMessages);
     },
     navigateToSection: e => {
       const node = e.target.parentNode;
@@ -79,7 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value == "" || textArea.value == ""
           ? "Please add both user and message fields"
           : "Message Sent!"
-      )
+      ),
+      saveSettings: () => {
+        const settings = settingsData();
+        settings.emailNotifications = emailSwitch.checked;
+        settings.publicProfile = profileSwitch.checked;
+        saveSettings(settings);
+      }
   };
 
   const eventListener = (element, event, action) =>
@@ -100,107 +150,107 @@ document.addEventListener("DOMContentLoaded", () => {
     return elementImg;
   }
 
-  const renderUserDetails = () => {
-    const profileImage = styleImg(data.details.img, `images/${data.details.img}.jpg`, data.details.img)
-    const userName = styleElement('p', 'user-name');
+  // Render UI Elements
 
-    userName.appendChild(
-      document.createTextNode(
-        `${data.details.firstName}  ${data.details.lastName}`
-      )
-    );
-    userDetailSection.appendChild(profileImage);
-    userDetailSection.appendChild(userName);
+  const render = {
+    userDetails:  () => {
+      const profileImage = styleImg(data.details.img, `images/${data.details.img}.jpg`, data.details.img)
+      const userName = styleElement('p', 'user-name');
+  
+      userName.appendChild(
+        document.createTextNode(
+          `${data.details.firstName}  ${data.details.lastName}`
+        )
+      );
+      userDetailSection.appendChild(profileImage);
+      userDetailSection.appendChild(userName);
+    },
+  
+    menuItems: () => {
+      menuItems().forEach((item, index) => {
+        const menuSection = styleElement('div', 'menu-item', '', index == 0 ? 'menu-item-selected' : 'menu-item-deselected');
+  
+        const svg = document.createElement('svg');
+        svg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" onClick='window.location="${item.navigateToSection}"'>${item.path}</svg>`;
+        svg.querySelector('path').classList.add(`${item.name}-Icon`);
+  
+        menuSection.appendChild(svg);
+        menu.appendChild(menuSection);
+      });
+    },
+  
+   notifWindow: (messages = notifMessages) => {
+      messages.forEach((message, index) => {
+  
+        const notifMsg = document.createElement("p");
+        const notifAlertSymbol = styleElement('span', 'notif-alert-symbol');
+        const notifMessageCloseButton = styleElement('span', 'notif-close', '&times;', index);
+        const notifSection = styleElement('div', 'notif-section', '', index);
+  
+        notifMsg.appendChild(document.createTextNode(message))
+        notifSection.appendChild(notifAlertSymbol);
+        notifSection.appendChild(notifMsg);
+        notifSection.appendChild(notifMessageCloseButton);
+        notifWindow.appendChild(notifSection);
+        eventListener(notifMessageCloseButton,'click', 'closeNotificationMessage');
+      });
+  
+      notifWindowCloseButton.appendChild(notifCloseSectionText);
+      notifWindowCloseButton.className = "close-notif-section";
+      notifCloseSectionText.appendChild(document.createTextNode("Close Notifications"));
+      notifWindow.appendChild(notifWindowCloseButton);
+    },
+  
+    socialStats: () => {
+      socialStats().forEach(item => {
+        const socialSection = document.querySelector(`.${item.name}`);
+        const stats = styleElement('div', 'stats');
+        const title = styleElement('p', `${item.name}-title`, item.name);
+        const value = styleElement('p', `${item.name}-stat`, item.value);
+  
+        stats.appendChild(title);
+        stats.appendChild(value);
+        socialSection.appendChild(stats);
+      });
+    },
+  
+    memberActivity: () => {
+      memberActivityData().forEach(item => {
+        const memberSection = styleElement('div', 'members');
+        const memberDetails = styleElement('div', 'member-details');
+        const name = styleElement('p', 'name', `${item.member.firstName} ${item.member.lastName}`);
+        const email = styleElement('p', 'email', item.member.email);
+        const regDate = styleElement('p', 'date', item.member.regDate);
+        const memberImg = styleImg('member-img', `images/${item.member.img}.jpg`, item.member.img);
+        const activitySection = styleElement('div', 'members');
+        const activityImg = styleImg('activity-img', `images/${item.member.img}.jpg`, item.member.img);
+        const activityDetails = styleElement('div', 'activity-details');
+        const target = (`${item.activity[0].thread}`).bold();
+        const message = `${item.member.firstName} ${item.member.lastName} 
+        ${item.activity[0].type}ed on ${target} ${item.activity[0].time} ago`;
+        const activityMessage = styleElement("p", "activity-message", message, "");
+        const nextImg = styleImg('next', 'https://img.icons8.com/ios/50/000000/more-than.png', 'next-icon');
+  
+        memberDetails.appendChild(name);
+        memberDetails.appendChild(email);
+        memberSection.appendChild(memberImg);
+        memberSection.appendChild(memberDetails);
+        memberSection.appendChild(regDate);
+        activityDetails.appendChild(activityMessage);
+        activityDetails.appendChild(nextImg);
+        activitySection.appendChild(activityImg);
+        activitySection.appendChild(activityDetails);
+        document.querySelector('.mb').appendChild(memberSection);
+        document.querySelector('.ac').appendChild(activitySection);
+      });
+    },
+  
+    settings: () => {
+      emailSwitch.checked = getSettings().emailNotifications;
+      profileSwitch.checked = getSettings().publicProfile;
+    }
   };
-
-  const renderMenuItems = () => {
-    menuItems().forEach((item, index) => {
-      const menuSection = styleElement('div', 'menu-item', '', index == 0 ? 'menu-item-selected' : 'menu-item-deselected');
-
-      const svg = document.createElement('svg');
-      svg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">${item.path}</svg>`;
-      svg.querySelector('path').classList.add(`${item.name}-Icon`);
-
-      menuSection.appendChild(svg);
-      menu.appendChild(menuSection);
-    });
-  };
-
-  const renderNotifWindow = messages => {
-    messages.forEach((message, index) => {
-
-      const notifMsg = document.createElement("p");
-      const notifAlertSymbol = styleElement('span', 'notif-alert-symbol');
-      const notifMessageCloseButton = styleElement('span', 'notif-close', '&times;', index);
-      const notifSection = styleElement('div', 'notif-section', '', index);
-
-      notifMsg.appendChild(document.createTextNode(message))
-      notifSection.appendChild(notifAlertSymbol);
-      notifSection.appendChild(notifMsg);
-      notifSection.appendChild(notifMessageCloseButton);
-      notifWindow.appendChild(notifSection);
-      eventListener(notifMessageCloseButton,'click', 'closeNotificationMessage');
-    });
-
-    notifWindowCloseButton.appendChild(notifCloseSectionText);
-    notifWindowCloseButton.className = "close-notif-section";
-    notifCloseSectionText.appendChild(document.createTextNode("Close Notifications"));
-    notifWindow.appendChild(notifWindowCloseButton);
-  };
-
-  const renderSocialStats = () => {
-    socialStats().forEach(item => {
-      const socialSection = document.querySelector(`.${item.name}`);
-      const stats = styleElement('div', 'stats');
-      const title = styleElement('p', `${item.name}-title`, item.name);
-      const value = styleElement('p', `${item.name}-stat`, item.value);
-
-      stats.appendChild(title);
-      stats.appendChild(value);
-      socialSection.appendChild(stats);
-    });
-  };
-
-  const renderMembersActivity = () => {
-    memberActivityData().forEach(item => {
-      const memberSection = styleElement('div', 'members');
-      const memberDetails = styleElement('div', 'member-details');
-      const name = styleElement('p', 'name', `${item.member.firstName} ${item.member.lastName}`);
-      const email = styleElement('p', 'email', item.member.email);
-      const regDate = styleElement('p', 'date', item.member.regDate);
-      const memberImg = styleImg('member-img', `images/${item.member.img}.jpg`, item.member.img);
-      const activitySection = styleElement('div', 'members');
-      const activityImg = styleImg('activity-img', `images/${item.member.img}.jpg`, item.member.img);
-      const activityDetails = styleElement('div', 'activity-details');
-      const target = (`${item.activity[0].thread}`).bold();
-      const message = `${item.member.firstName} ${item.member.lastName} 
-      ${item.activity[0].type}ed on ${target} ${item.activity[0].time} ago`;
-      const activityMessage = styleElement("p", "activity-message", message, "");
-      const nextImg = styleImg('next', 'https://img.icons8.com/ios/50/000000/more-than.png', 'next-icon');
-
-      memberDetails.appendChild(name);
-      memberDetails.appendChild(email);
-      memberSection.appendChild(memberImg);
-      memberSection.appendChild(memberDetails);
-      memberSection.appendChild(regDate);
-      activityDetails.appendChild(activityMessage);
-      activityDetails.appendChild(nextImg);
-      activitySection.appendChild(activityImg);
-      activitySection.appendChild(activityDetails);
-      document.querySelector('.mb').appendChild(memberSection);
-      document.querySelector('.ac').appendChild(activitySection);
-    });
-  };
-
-  renderUserDetails();
-  renderMenuItems();
-  renderNotifWindow(notifMessages);
-  renderSocialStats();
-  renderMembersActivity();
-
-  eventListener(notifButton,'click', 'showNotificationWindow');
-  eventListener(notifWindowCloseButton,'click', 'closeNotificationWindow');
-  eventListener(menu,'click', 'navigateToSection');
-  eventListener(searchInput,'input', 'searchMembers');
-  eventListener(sendButton,'click', 'sendEmail');
+  
+  UIElements.forEach(element => render[element]());
+  eventListenerActions.forEach(section => eventListener(section.element, section.action, section.event));
 });
