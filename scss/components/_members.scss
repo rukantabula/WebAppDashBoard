@@ -202,8 +202,7 @@
 
 
 .activity-img {
-  display: none;
-  @include mq("xlg") {
+  @include mq("lg") {
     display: inline-block;
   }
 }
