@@ -13,9 +13,8 @@
       }
       @include mq("med") {
         display: inline-block;
-        width: 40%;
+        width: 45%;
       }
-
 }
 
 .ac {
@@ -100,6 +99,10 @@
     height: 55px;
     width: 55px;
   }
+  @include mq("lg") {
+    height: 45px;
+    width: 45px;
+  }
 }
 
 .member-details,
@@ -177,7 +180,7 @@
   }
 
   @include mq("lg") {
-    max-width: 270px;
+    max-width: 250px;
   }
 
   @include mq("xlg") {
@@ -187,7 +190,7 @@
 
 .activity-img,
 .activity-details {
-  @include mq("xlg") {
+  @include mq("lg") {
     display: inline-block;
   }
 }
